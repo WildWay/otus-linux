@@ -1,0 +1,8 @@
+1."Development Tools"
+2. ncurses-devel
+3. hmaccalc
+4. zlib-devel
+5. binutils-devel
+6. elfutils-libelf-devel
+7. openssl-devel 
+8. bc
