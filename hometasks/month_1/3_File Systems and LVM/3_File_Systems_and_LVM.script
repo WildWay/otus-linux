@@ -1,0 +1,338 @@
+Script started on Fri 08 Feb 2019 11:35:41 PM UTC
+]0;root@lvm:~[?1034h[root@lvm ~]# [H[2J[root@lvm ~]# #!/bin/bash
+]0;root@lvm:~[root@lvm ~]# #
+]0;root@lvm:~[root@lvm ~]# # Месяц 1. Тема 3. Файловые системы и LVM.
+]0;root@lvm:~[root@lvm ~]# #
+]0;root@lvm:~[root@lvm ~]# # Задачи:
+]0;root@lvm:~[root@lvm ~]# #
+]0;root@lvm:~[root@lvm ~]# # 0. Залогировать всю работу с помощью script
+]0;root@lvm:~[root@lvm ~]# # 1. Уменьшить имеющийся том LogVol00 до 8G
+]0;root@lvm:~[root@lvm ~]# # 2. Сделать зеркальный том для /var
+]0;root@lvm:~[root@lvm ~]# # 3. Сделать том для /home
+]0;root@lvm:~[root@lvm ~]# # 4. Прописать монтирование для /var и /home в fstab
+]0;root@lvm:~[root@lvm ~]# # 5. Сгенерировать файлы в /home/, снять снэпшот, удалить часть файлов, восстановиться со снэпшота
+]0;root@lvm:~[root@lvm ~]# # 6. * Создать том btrfs/zfs с кэшем и снэпшотами, разместить на нём каталог /opt
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# # Выполнение:
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# #
+]0;root@lvm:~[root@lvm ~]# # 0. Залогировать всю работу с помощью script
+]0;root@lvm:~[root@lvm ~]# echo "В процессе."
+В процессе.
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# # 1. Уменьшить имеющийся том LogVol00 до 8G
+]0;root@lvm:~[root@lvm ~]# df -hT | grep /$                                                        # Вывод данных о разделе
+
+#
+# === Подготовка
+/dev/mapper/VolGroup00-LogVol00 xfs        38G  733M   37G   2% [01;31m[K/[m[K
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# #
+]0;root@lvm:~[root@lvm ~]# # === Подготовка
+]0;root@lvm:~[root@lvm ~]# #
+]0;root@lvm:~[root@lvm ~]# # xfs нельзя уменьшить на использующемся томе.
+]0;root@lvm:~[root@lvm ~]# # Для снятия копии тома необходима установка xfsdump :
+]0;root@lvm:~[root@lvm ~]# yum install -y xfsdump
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.reconn.ru
+ * extras: mirror.corbina.net
+ * updates: mirror.corbina.net
+Resolving Dependencies
+--> Running transaction check
+---> Package xfsdump.x86_64 0:3.1.7-1.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================================================================================================================================
+ Package                                       Arch                                         Version                                            Repository                                  Size
+================================================================================================================================================================================================
+Installing:
+ xfsdump                                       x86_64                                       3.1.7-1.el7                                        base                                       308 k
+
+Transaction Summary
+================================================================================================================================================================================================
+Install  1 Package
+
+Total download size: 308 k
+Installed size: 947 k
+Downloading packages:
+xfsdump-3.1.7-1.el7.x86_64.rpm                                                                                                                                           | 308 kB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : xfsdump-3.1.7-1.el7.x86_64 [                                                                                                                                               ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [########                                                                                                                                       ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [##################                                                                                                                             ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [############################                                                                                                                   ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [#####################################                                                                                                          ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [##########################################                                                                                                     ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [####################################################                                                                                           ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [##############################################################                                                                                 ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [#######################################################################                                                                        ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [#################################################################################                                                              ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [###########################################################################################                                                    ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [####################################################################################################                                           ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [#########################################################################################################                                      ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [##############################################################################################################                                 ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [################################################################################################################                               ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [##################################################################################################################                             ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [##########################################################################################################################                     ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [###############################################################################################################################                ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [#######################################################################################################################################        ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [##########################################################################################################################################     ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [############################################################################################################################################   ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64 [#############################################################################################################################################  ] 1/1  Installing : xfsdump-3.1.7-1.el7.x86_64                                                                                                                                                   1/1 
+  Verifying  : xfsdump-3.1.7-1.el7.x86_64                                                                                                                                                   1/1 
+
+Installed:
+  xfsdump.x86_64 0:3.1.7-1.el7                                                                                                                                                                  
+
+Complete!
+]0;root@lvm:~[root@lvm ~]# # Создать временный том для раздела / :
+]0;root@lvm:~[root@lvm ~]# pvcreate /dev/sdb                                                       # Physical Volume (PV) - раздел или том, базовая составляющая Volume Group
+  Physical volume "/dev/sdb" successfully created.
+]0;root@lvm:~[root@lvm ~]# vgcreate vg_root /dev/sdb                                               # Volume Group (VG)    - пространство, в котором объединены ресурсы PV
+  Volume group "vg_root" successfully created
+]0;root@lvm:~[root@lvm ~]# lvcreate -n lv_root -l 100%FREE /dev/vg_root                            # Logical Volume (LV)  - логический раздел, использующий ресурсы VG
+  Logical volume "lv_root" created.
+]0;root@lvm:~[root@lvm ~]# mkfs.xfs /dev/vg_root/lv_root                                           # Создать файловую систему на LV
+meta-data=/dev/vg_root/lv_root   isize=512    agcount=4, agsize=655104 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=1        finobt=0, sparse=0
+data     =                       bsize=4096   blocks=2620416, imaxpct=25
+         =                       sunit=0      swidth=0 blks
+naming   =version 2              bsize=4096   ascii-ci=0 ftype=1
+log      =internal log           bsize=4096   blocks=2560, version=2
+         =                       sectsz=512   sunit=0 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+]0;root@lvm:~[root@lvm ~]# mount /dev/vg_root/lv_root /mnt                                         # Примонтировать LV в /mnt
+]0;root@lvm:~[root@lvm ~]# xfsdump - -J /dev/VolGroup00/LogVol00 | xfsrestore - -J /mnt            # Передать дамп на восстановление(-), подавив создание inventory(-J) (используется с целью возобновить дам п, в случае прерывания)
+xfsrestore: using file dump (drive_simple) strategy
+xfsrestore: version 3.1.7 (dump format 3.0)
+xfsdump: using file dump (drive_simple) strategy
+xfsdump: version 3.1.7 (dump format 3.0)
+xfsdump: level 0 dump of lvm:/
+xfsdump: dump date: Fri Feb  8 23:36:32 2019
+xfsdump: session id: 120d3185-6fb5-4c69-a2b8-da9e7affc45c
+xfsdump: session label: ""
+xfsrestore: searching media for dump
+xfsdump: ino map phase 1: constructing initial dump list
+xfsdump: ino map phase 2: skipping (no pruning necessary)
+xfsdump: ino map phase 3: skipping (only one dump stream)
+xfsdump: ino map construction complete
+xfsdump: estimated dump size: 730024832 bytes
+xfsdump: creating dump session media file 0 (media 0, file 0)
+xfsdump: dumping ino map
+xfsdump: dumping directories
+xfsrestore: examining media file 0
+xfsrestore: dump description: 
+xfsrestore: hostname: lvm
+xfsrestore: mount point: /
+xfsrestore: volume: /dev/mapper/VolGroup00-LogVol00
+xfsrestore: session time: Fri Feb  8 23:36:32 2019
+xfsrestore: level: 0
+xfsrestore: session label: ""
+xfsrestore: media label: ""
+xfsrestore: file system id: b60e9498-0baa-4d9f-90aa-069048217fee
+xfsrestore: session id: 120d3185-6fb5-4c69-a2b8-da9e7affc4Script started on Fri 08 Feb 2019 11:53:13 PM UTC
+]0;root@lvm:~[?1034h[root@lvm ~]# echo "Запись script возобновлена"
+Запись script возобновлена
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# lsblk | grep /$                                                         # Убедиться, что система загружена с первоначального тома VolGroup00/LogVol00/
+  ├─VolGroup00-LogVol00 253:0    0    8G  0 lvm  [01;31m[K/[m[K
+]0;root@lvm:~[root@lvm ~]# lvremove /dev/vg_root/lv_root -y                                        # Удалить, использованные для переноса LV
+  Logical volume "lv_root" successfully removed
+]0;root@lvm:~[root@lvm ~]# vgremove /dev/vg_root -y                                                #                                      VG
+  Volume group "vg_root" successfully removed
+]0;root@lvm:~[root@lvm ~]# pvremove /dev/sdb -y                                                    #                                      PV
+  Labels on physical volume "/dev/sdb" successfully wiped.
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# # === Задача 1 завершена
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# # 2. Сделать зеркальный том для /var
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# pvcreate /dev/sdc /dev/sdd                                              # Создать PV для тома RAID 1
+  Physical volume "/dev/sdc" successfully created.
+  Physical volume "/dev/sdd" successfully created.
+]0;root@lvm:~[root@lvm ~]# vgcreate vg_var /dev/sdc /dev/sdd                                       # Создать VG из этих PV
+  Volume group "vg_var" successfully created
+]0;root@lvm:~[root@lvm ~]# lvcreate -L 950M -m1 -n lv_var vg_var                                   # Создать LV объемом 950M, уровнем RAID 1, с именем lv_var, в vg_var
+  Rounding up size to full physical extent 952.00 MiB
+  Logical volume "lv_var" created.
+]0;root@lvm:~[root@lvm ~]# mkfs.ext4 /dev/vg_var/lv_var                                            # Создать файловую систему ext4 на lv_var
+mke2fs 1.42.9 (28-Dec-2013)
+Filesystem label=
+OS type: Linux
+Block size=4096 (log=2)
+Fragment size=4096 (log=2)
+Stride=0 blocks, Stripe width=0 blocks
+60928 inodes, 243712 blocks
+12185 blocks (5.00%) reserved for the super user
+First data block=0
+Maximum filesystem blocks=249561088
+8 block groups
+32768 blocks per group, 32768 fragments per group
+7616 inodes per group
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376
+
+Allocating group tables: 0/8   done                            
+Writing inode tables: 0/8   done                            
+Creating journal (4096 blocks): done
+Writing superblocks and filesystem accounting information: 0/8   done
+
+]0;root@lvm:~[root@lvm ~]# mount /dev/vg_var/lv_var /mnt                                           # Примонтировать lv_var в /mnt/
+]0;root@lvm:~[root@lvm ~]# cp -aR /var/* /mnt/                                                     # Скопировать всё содержимое /var/ в /mnt/ с сохранением структуры и атрибутов исходных файлов
+]0;root@lvm:~[root@lvm ~]# umount /mnt && mount /dev/vg_var/lv_var /var                            # Отмонтировать lv_var из /mnt и примонтировать в /var
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# # === Задача 2 завершена
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# # 3. Сделать том для /home
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# lvcreate -n LogVol_Home -L 2G /dev/VolGroup00                           # Создать LV LogVol_Home объемом 2G в VolGroup00
+  Logical volume "LogVol_Home" created.
+]0;root@lvm:~[root@lvm ~]# mkfs.xfs /dev/VolGroup00/LogVol_Home                                    # Создать файловую систему xfs на LogVol_Home
+meta-data=/dev/VolGroup00/LogVol_Home isize=512    agcount=4, agsize=131072 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=1        finobt=0, sparse=0
+data     =                       bsize=4096   blocks=524288, imaxpct=25
+         =                       sunit=0      swidth=0 blks
+naming   =version 2              bsize=4096   ascii-ci=0 ftype=1
+log      =internal log           bsize=4096   blocks=2560, version=2
+         =                       sectsz=512   sunit=0 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+]0;root@lvm:~[root@lvm ~]# mount /dev/VolGroup00/LogVol_Home /mnt/                                 # Примонтировать LogVol_Home в /mnt/
+]0;root@lvm:~[root@lvm ~]# cp -aR /home/* /mnt/                                                    # Скопировать всё содержимое /home/ в /mnt/ с сохранением структуры и атрибутов исходных файлов
+]0;root@lvm:~[root@lvm ~]# rm -rf /home/*                                                          # Удалить все файлв в /home/, игнорируя предупреждения
+]0;root@lvm:~[root@lvm ~]# umount /mnt && mount /dev/VolGroup00/LogVol_Home /home/                 # Отмонтировать LogVol_Home из /mnt и примонтировать в /home/
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# # === Задача 3 завершена
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# # 4. Прописать монтирование для /var и /home в fstab
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# df -h /var /home                                                        # Убедиться в расположении /var и /home на отдельных томах
+Filesystem                          Size  Used Avail Use% Mounted on
+/dev/mapper/vg_var-lv_var           922M  108M  751M  13% /var
+/dev/mapper/VolGroup00-LogVol_Home  2.0G   33M  2.0G   2% /home
+]0;root@lvm:~[root@lvm ~]# # Создать записи в fstab для /var и /home
+]0;root@lvm:~[root@lvm ~]# echo "`blkid | grep var: | awk '{print $2}'` /var ext4 defaults 0 0" >> /etc/fstab
+echo "`blkid | grep Home | awk '{print $2}'` /home xfs defaults 0 0" >> /etc/fstab]0;root@lvm:~[root@lvm ~]# echo "`blkid | grep Home | awk '{print $2}'` /home xfs defaults 0 0" >> /etc/fstab
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# # === Задача 4 завершена
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# exit                                                                    # Выйти в оригинальную корневую директорию для перезагрузки
+exit
+
+Script done on Sat 09 Feb 2019 12:01:52 AM UTC
+Script started on Sat 09 Feb 2019 12:03:51 AM UTC
+]0;root@lvm:~[?1034h[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# echo "Запись script возобновлена"
+Запись script возобновлена
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# # 5. Сгенерировать файлы в /home/, снять снэпшот, удалить часть файлов, восстановиться со снэпшота
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# touch /home/file{1..20}                                                 # Сгенерировать 20 файлов в home
+]0;root@lvm:~[root@lvm ~]# ls /home/file*                             # Вывести все файлы в /home/ начинающиеся на file[C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[1@ 
+/home/file1   /home/file11  /home/file13  /home/file15  /home/file17  /home/file19  /home/file20  /home/file4  /home/file6  /home/file8
+/home/file10  /home/file12  /home/file14  /home/file16  /home/file18  /home/file2   /home/file3   /home/file5  /home/file7  /home/file9
+]0;root@lvm:~[root@lvm ~]# lvcreate -L 100MB -s -n home_snap /dev/VolGroup00/LogVol_Home           # Создать том-снэпшот для /home
+  Rounding up size to full physical extent 128.00 MiB
+  Logical volume "home_snap" created.
+]0;root@lvm:~[root@lvm ~]# lsblk                                                                   # Вывести информацию о текущих дисках и томах
+NAME                            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                               8:0    0   40G  0 disk 
+├─sda1                            8:1    0    1M  0 part 
+├─sda2                            8:2    0    1G  0 part /boot
+└─sda3                            8:3    0   39G  0 part 
+  ├─VolGroup00-LogVol00         253:0    0    8G  0 lvm  /
+  ├─VolGroup00-LogVol01         253:1    0  1.5G  0 lvm  [SWAP]
+  ├─VolGroup00-LogVol_Home-real 253:8    0    2G  0 lvm  
+  │ ├─VolGroup00-LogVol_Home    253:7    0    2G  0 lvm  /home
+  │ └─VolGroup00-home_snap      253:10   0    2G  0 lvm  
+  └─VolGroup00-home_snap-cow    253:9    0  128M  0 lvm  
+    └─VolGroup00-home_snap      253:10   0    2G  0 lvm  
+sdb                               8:16   0   10G  0 disk 
+sdc                               8:32   0    2G  0 disk 
+├─vg_var-lv_var_rmeta_0         253:2    0    4M  0 lvm  
+│ └─vg_var-lv_var               253:6    0  952M  0 lvm  /var
+└─vg_var-lv_var_rimage_0        253:3    0  952M  0 lvm  
+  └─vg_var-lv_var               253:6    0  952M  0 lvm  /var
+sdd                               8:48   0    1G  0 disk 
+├─vg_var-lv_var_rmeta_1         253:4    0    4M  0 lvm  
+│ └─vg_var-lv_var               253:6    0  952M  0 lvm  /var
+└─vg_var-lv_var_rimage_1        253:5    0  952M  0 lvm  
+  └─vg_var-lv_var               253:6    0  952M  0 lvm  /var
+sde                               8:64   0    1G  0 disk 
+]0;root@lvm:~[root@lvm ~]# rm -f /home/file{11..20}                                                # Удалить файлы с file11 по file20
+]0;root@lvm:~[root@lvm ~]# ls /home/file*                            
+3_File                              anaconda-ks.cfg                     .bash_profile                       original-ks.cfg                     
+3_File Systems and LVM.script       .bash_history                       .bashrc                             .ssh/                               
+3_File Systems and LVM.script.bkp3  .bash_logout                        .cshrc                              .tcshrc                             
+[root@lvm ~]# ls /home/file*                            
+3_File                              anaconda-ks.cfg                     .bash_profile                       original-ks.cfg                     
+3_File Systems and LVM.script       .bash_history                       .bashrc                             .ssh/                               
+3_File Systems and LVM.script.bkp3  .bash_logout                        .cshrc                              .tcshrc                             
+[root@lvm ~]# ls /home/file*                            
+3_File                              anaconda-ks.cfg                     .bash_profile                       original-ks.cfg                     
+3_File Systems and LVM.script       .bash_history                       .bashrc                             .ssh/                               
+3_File Systems and LVM.script.bkp3  .bash_logout                        .cshrc                              .tcshrc                             
+[root@lvm ~]# ls /home/file*                            
+3_File                              anaconda-ks.cfg                     .bash_profile                       original-ks.cfg                     
+3_File Systems and LVM.script       .bash_history                       .bashrc                             .ssh/                               
+3_File Systems and LVM.script.bkp3  .bash_logout                        .cshrc                              .tcshrc                             
+[root@lvm ~]# ls /home/file*                            
+3_File                              anaconda-ks.cfg                     .bash_profile                       original-ks.cfg                     
+3_File Systems and LVM.script       .bash_history                       .bashrc                             .ssh/                               
+3_File Systems and LVM.script.bkp3  .bash_logout                        .cshrc                              .tcshrc                             
+[root@lvm ~]# ls /home/file*                            
+3_File                              anaconda-ks.cfg                     .bash_profile                       original-ks.cfg                     
+3_File Systems and LVM.script       .bash_history                       .bashrc                             .ssh/                               
+3_File Systems and LVM.script.bkp3  .bash_logout                        .cshrc                              .tcshrc                             
+[root@lvm ~]# ls /home/file*                            # Вывести все файлы в /home/ начинающиеся на file[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+/home/file1  /home/file10  /home/file2  /home/file3  /home/file4  /home/file5  /home/file6  /home/file7  /home/file8  /home/file9
+]0;root@lvm:~[root@lvm ~]# umount /home                                                            # Отмонтировать /home
+umount: /home: target is busy.
+        (In some cases useful info about processes that use
+         the device is found by lsof(8) or fuser(1))
+]0;root@lvm:~[root@lvm ~]# umount /home                                                            # Отмонтировать /home
+umount: /home: target is busy.
+        (In some cases useful info about processes that use
+         the device is found by lsof(8) or fuser(1))
+]0;root@lvm:~[root@lvm ~]# echo ""О"с"т"а"н"о"в"к"а" "л"о"г"и"р"о"в"а"н"и"я" "s"c"r"i"p"t"." "Н"е"о"б"х"о"д"и"м"а" "с"м"е"н"а" "п"о"л"ь"з"о"в"а"т"е"л"я"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"о" "с"м"е"н"и"т"ь" "п"о"л"ь"з"о"в"а"т"е"л"я"," "в"м"е"с"т"о" "и"с"п"о"л"ь"з"о"в"а"н"и"я" "п"р"и"в"е"л"е"г"и"р"о"в"а"н"н"о"г"о" "р"е"ж"и"м"а"."[C
+Остановка логирования script. Необходимо сменить пользователя, вместо использования привелегированного режима.
+]0;root@lvm:~[root@lvm ~]# учше[K[K[K[Kexit
+exit
+
+Script done on Sat 09 Feb 2019 12:14:03 AM UTC
+Script started on Sat 09 Feb 2019 12:21:00 AM UTC
+]0;root@lvm:~[?1034h[root@lvm ~]# echo ""Б"ы"л" "в"ы"п"о"л"н"е"н" "в"х"о"д" "о"т" "п"о"л"ь"з"о"в"а"т"е"л"я" "r"o"o"t"/"[1P"."[C "Р"а"б"о"т"а" "о"с"т"а"[1P"[1P"[1P"[1P"д"[1P"п"р"о"ч"и"х" "п"о"л"ь"з"о"в"а"т"е"л"е"й"," "и"с"п"о"л"ь"з"у"ю"щ"и"й" "п"а"п"[1P"[1P"[1P"[1P"[1P"х" "п"а"п"к"у" "/"h"o"m"e"[C[C[1P /home"[1P /home"[1P /home"[1P /home"[1P /home"д /home"и /home"р /home"е /home"к /home"т /home"о /home"р /home"и /home"ю /home"[C[C[C[C[C[C[C "з"а"в"е"р"ш"е"н"а"."[C
+Был выполнен вход от пользователя root. Работа прочих пользователей, использующих директорию /home завершена.
+]0;root@lvm:~[root@lvm ~]# ls /home/file*                            
+3_File                              3_File Systems and LVM.script.bkp4  .bash_logout                        .cshrc                              .tcshrc
+3_File Systems and LVM.script       anaconda-ks.cfg                     .bash_profile                       original-ks.cfg                     
+3_File Systems and LVM.script.bkp3  .bash_history                       .bashrc                             .ssh/                               
+[root@lvm ~]# ls /home/file*                            
+3_File                              3_File Systems and LVM.script.bkp4  .bash_logout                        .cshrc                              .tcshrc
+3_File Systems and LVM.script       anaconda-ks.cfg                     .bash_profile                       original-ks.cfg                     
+3_File Systems and LVM.script.bkp3  .bash_history                       .bashrc                             .ssh/                               
+[root@lvm ~]# ls /home/file*                            
+3_File                              3_File Systems and LVM.script.bkp4  .bash_logout                        .cshrc                              .tcshrc
+3_File Systems and LVM.script       anaconda-ks.cfg                     .bash_profile                       original-ks.cfg                     
+3_File Systems and LVM.script.bkp3  .bash_history                       .bashrc                             .ssh/                               
+[root@lvm ~]# ls /home/file*                            
+3_File                              3_File Systems and LVM.script.bkp4  .bash_logout                        .cshrc                              .tcshrc
+3_File Systems and LVM.script       anaconda-ks.cfg                     .bash_profile                       original-ks.cfg                     
+3_File Systems and LVM.script.bkp3  .bash_history                       .bashrc                             .ssh/                               
+[root@lvm ~]# ls /home/file*                            
+3_File                              3_File Systems and LVM.script.bkp4  .bash_logout                        .cshrc                              .tcshrc
+3_File Systems and LVM.script       anaconda-ks.cfg                     .bash_profile                       original-ks.cfg                     
+3_File Systems and LVM.script.bkp3  .bash_history                       .bashrc                             .ssh/                               
+[root@lvm ~]# ls /home/file*                            
+3_File                              3_File Systems and LVM.script.bkp4  .bash_logout                        .cshrc                              .tcshrc
+3_File Systems and LVM.script       anaconda-ks.cfg                     .bash_profile                       original-ks.cfg                     
+3_File Systems and LVM.script.bkp3  .bash_history                       .bashrc                             .ssh/                               
+[root@lvm ~]# ls /home/file*                            # Вывести все файлы в /home/ начинающиеся на file
+/home/file1  /home/file10  /home/file2  /home/file3  /home/file4  /home/file5  /home/file6  /home/file7  /home/file8  /home/file9
+]0;root@lvm:~[root@lvm ~]# umount /home                                                            # Отмонтировать /home
+]0;root@lvm:~[root@lvm ~]# lvconvert --merge /dev/VolGroup00/home_snap                             # Восстановиться со снимка home_snap (снимок будет удалён)
+  Merging of volume VolGroup00/home_snap started.
+  VolGroup00/LogVol_Home: Merged: 100.00%
+]0;root@lvm:~[root@lvm ~]# mount /home                                                             # Примонтировать /home
+]0;root@lvm:~[root@lvm ~]# ды [K[K[Kls /home/files[K*                                                          # Вывести все файлы в /home/ начинающиеся на file
+/home/file1   /home/file11  /home/file13  /home/file15  /home/file17  /home/file19  /home/file20  /home/file4  /home/file6  /home/file8
+/home/file10  /home/file12  /home/file14  /home/file16  /home/file18  /home/file2   /home/file3   /home/file5  /home/file7  /home/file9
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# # === Задача 5 завершена
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# # === Базовая часть домашнего задания завершена.
+]0;root@lvm:~[root@lvm ~]# 
+]0;root@lvm:~[root@lvm ~]# exit                                                                    # Остановка записи script
+exit
+
+Script done on Sat 09 Feb 2019 12:24:29 AM UTC
