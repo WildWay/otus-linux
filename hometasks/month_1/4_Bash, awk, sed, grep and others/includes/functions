@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+# Функции, используемые watchguard'ом
+
+
+
+currDate(){
+
+    date '+%F %T'
+
+}
+
+
+
+checkService(){
+
+echo "\n=== Проверка состояния $SERVICE\n" | tee -a $WATCHGUARD_LOG
+
+echo "Сервис $SERVICE \c" >> $WATCHGUARD_LOG
+systemctl is-enabled $SERVICE >> $WATCHGUARD_LOG
+SERV_ENB=`echo $?`
+
+echo "Сервис $SERVICE \c" >> $WATCHGUARD_LOG
+systemctl is-active $SERVICE >> $WATCHGUARD_LOG
+SERV_RUN=`echo $?`
+
+tail -n 2 $WATCHGUARD_LOG
+
+echo "\n=== Проверка состояния $SERVICE завершена\n" | tee -a $WATCHGUARD_LOG
+
+}
+
+
+
+checkLogs(){
+
+# Вывод timestamp, типа операции в контексте $SERVICE
+cat $SERVICE_LOG | grep $SERVICE | sed "s/[=| ]/\t/g" | awk '{print $2 " " $4 " " $17}' | sed "s/[(): ]/\t/g" | awk '{print $3 " " $1 " " $5 }'
+
+# Когда, кто, какой тип аутентификации использовал
+sudo aureport -au | awk '{print $2 " " $3 "\t" $7}'
+
+
+
+}

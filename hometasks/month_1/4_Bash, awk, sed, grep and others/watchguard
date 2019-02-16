@@ -1,0 +1,134 @@
+#!/usr/bin/env bash
+
+
+
+# Разрешить обработку backslash для echo (для обработки переносов)
+shopt -s xpg_echo
+
+echo "===== Этап 0. Подключение необходимых файлов.\n"
+
+sleep 2
+
+# Путь до доп файлов (конфиг и функции)
+INCLUDES=$(dirname "`realpath $0`")"/includes/"
+
+# Подключить доп файлы
+for INCL in $(ls "$INCLUDES"); do
+
+    source "$INCLUDES$INCL" 2> /dev/null
+
+done
+
+# Проверить подключились ли файлы.
+if [[ $? == 0  ]]; then
+
+    echo "Файлы подключены.\n"
+
+else
+
+    echo "Ошибка. Файлы не подключены или не обнаружены.\n
+    Завершение работы watchguard.\n"
+    exit 100
+
+fi
+
+echo  "===== Этап 0 завершён успешно.\n\n\n"
+
+
+
+sleep 2
+
+
+
+echo "===== `currDate`. Запуск watchguard.\n" | tee $WATCHGUARD_LOG
+
+sleep 2
+
+
+echo "===== Этап 1. Проверка состояния сервиса.\n"
+
+echo "Работа осуществляется с сервисом - $SERVICE\n"
+
+sleep 2
+
+checkService
+
+if [[ $SERV_ENB == 0 && $SERV_RUN == 0  ]]; then
+
+    echo "\n=== $SERVICE запущен, автозапуск включен.\n
+    Действия не требуются. Работа будет продолжена.\n `currDate`\n" | tee -a $WATCHGUARD_LOG
+    sleep 2
+
+elif [[ $SERV_ENB != 0 && $SERV_RUN != 0  ]]; then
+    
+    echo "\n=== $SERVICE остановлен, автозапуск отключен.\n
+    $SERVICE будет запущен, автозапуск включен. `currDate`\n" | tee -a $WATCHGUARD_LOG
+    sleep 2
+    systemctl enable --now httpd;
+
+elif [[ $SERV_ENB != 0 ]]; then
+    
+    echo "\n=== $SERVICE запущен, автозапуск отключен.\n
+    $SERVICE автозапуск будет включен. `currDate`\n" | tee -a $WATCHGUARD_LOG
+    sleep 2
+    systemctl enable httpd;
+
+elif [[ $SERV_RUN != 0 ]]; then
+    
+    echo "\n=== $SERVICE остановлен, автозапуск включен.\n
+    $SERVICE будет запущен. `currDate`\n" | tee -a $WATCHGUARD_LOG
+    sleep 2
+    systemctl start httpd;
+
+else
+
+    echo "\n=== Нештатная ситуация. Состояние $SERVICE не определено.\n
+    Завершение работы watchguard. `currDate`\n" | tee -a $WATCHGUARD_LOG
+    sleep 2
+    exit 101
+fi
+
+sleep 2
+
+checkService
+
+
+echo "===== Этап 1 завершён успешно.\n\n\n"
+
+
+
+sleep 2
+
+
+
+echo "===== Этап 2. Анализ логов.\n"
+
+echo "В дальнейшем здесь что-то появится.\n"
+
+sleep 2
+
+echo "===== Этап 2 завершен.\n\n\n"
+
+
+
+echo "===== Этап 3. Отправка e-mail.\n"
+
+echo "В дальнейшем здесь что-то появится.\n"
+
+sleep 2
+
+echo "===== Этап 3 завершен.\n\n\n"
+
+
+echo "===== Работа watchguard завершена. `currDate` \n\n\n" | tee -a $WATCHGUARD_LOG
+
+sleep 2
+
+
+echo "
+=====\n
+==========\n
+=============== Вывод записей лога. `currDate`\n"
+# Текущая дата
+
+cat $WATCHGUARD_LOG
