@@ -8,8 +8,8 @@ shopt -s xpg_echo
 echo "PID\tTTY\t\tSTAT\tTIME\tCOMMAND"
 
 
-# Для каждой директории с цифровым наименованием 
-for PID in $(find /proc/ -maxdepth 1 -name [0-9]* -type d); do
+# Для каждой директории с цифровым наименованием, кроме директории текущего PID 
+for PID in $(find /proc/ -maxdepth 1 -name [0-9]* -type d -not -path /proc/$BASHPID); do
     
     # Определить параметры
     _PID=`awk {'print $1'} $PID/stat`

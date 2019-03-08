@@ -1,794 +1,786 @@
 {
-  "duration": 6.167109,
-  "command": null,
-  "version": 1,
-  "env": {
-    "SHELL": "/bin/bash",
-    "TERM": "xterm-256color"
-  },
   "stdout": [
     [
-      0.154494,
-      "\u001b]0;root@wildway1c:/tmp\u0007\u001b[?1034h[root@wildway1c tmp]# "
+      0.144135,
+      "\u001b]0;root@wildway1c:~\u0007\u001b[?1034h[root@wildway1c ~]# "
     ],
     [
-      2.256262,
+      1.183836,
       "."
     ],
     [
-      0.091793,
+      0.059479,
       "/"
     ],
     [
-      0.567276,
+      0.231091,
       "p"
     ],
     [
-      0.095882,
+      0.064602,
       "s"
     ],
     [
-      0.195069,
+      0.19037,
       "_ax.sh "
     ],
     [
-      0.927723,
+      0.539787,
       "\r\n"
     ],
     [
-      0.002165,
-      "PID\tTTY\t\tSTAT\tTIME\tCOMMAND\r\n"
+      0.002187,
+      "25327\r\nPID\tTTY\t\tSTAT\tTIME\tCOMMAND\r\n"
     ],
     [
-      0.016188,
-      "1\t\tS\t0:4\t/usr/lib/systemd/systemd--switched-root--system--deserialize22\r\n"
+      0.01552,
+      "1\t\tS\t0:3\t/usr/lib/systemd/systemd--switched-root--system--deserialize22\r\n"
     ],
     [
-      0.010087,
+      0.010461,
       "2\t\tS\t0:0\t\r\n"
     ],
     [
-      0.00999,
+      0.010015,
       "3\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010022,
+      0.01002,
       "5\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010059,
+      0.010539,
+      "6\t\tS\t0:0\t\r\n"
+    ],
+    [
+      0.01046,
       "7\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010091,
+      0.011033,
       "8\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010644,
+      0.009727,
       "9\t\tS\t0:0\t\r\n"
     ],
     [
-      0.009758,
+      0.010571,
       "10\t\tS\t0:0\t\r\n"
     ],
     [
-      0.009972,
+      0.010382,
       "11\t\tS\t0:0\t\r\n"
     ],
     [
-      0.009726,
+      0.010467,
       "12\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010542,
+      0.010564,
       "13\t\tS\t0:0\t\r\n"
     ],
     [
-      0.00974,
+      0.010695,
       "14\t\tS\t0:0\t\r\n"
     ],
     [
-      0.00987,
+      0.010754,
       "16\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010139,
+      0.010353,
       "18\t\tS\t0:0\t\r\n"
     ],
     [
-      0.009957,
+      0.010064,
       "19\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010137,
+      0.01043,
       "20\t\tS\t0:0\t\r\n"
     ],
     [
-      0.00971,
+      0.009693,
       "21\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010394,
+      0.010186,
       "23\t\tS\t0:0\t\r\n"
     ],
     [
-      0.01031,
+      0.009842,
       "24\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010296,
+      0.010526,
       "25\t\tS\t0:0\t\r\n"
     ],
     [
-      0.009908,
+      0.01064,
       "26\t\tS\t0:0\t\r\n"
     ],
     [
-      0.009831,
+      0.010435,
       "27\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010041,
+      0.010328,
       "28\t\tS\t0:0\t\r\n"
     ],
     [
-      0.01016,
+      0.009666,
       "29\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010219,
+      0.010353,
+      "30\t\tS\t0:0\t\r\n"
+    ],
+    [
+      0.010005,
       "31\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010099,
+      0.010562,
       "32\t\tS\t0:0\t\r\n"
     ],
     [
-      0.009604,
+      0.009952,
       "33\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010007,
+      0.010245,
       "38\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010033,
+      0.010304,
       "39\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010072,
+      0.010232,
       "40\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010255,
+      0.009943,
       "41\t\tS\t0:0\t\r\n"
     ],
     [
-      0.009773,
+      0.01058,
       "49\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010183,
-      "50\t\tS\t0:0\t\r\n"
-    ],
-    [
-      0.009618,
+      0.010186,
       "51\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010376,
+      0.010464,
       "52\t\tS\t0:0\t\r\n"
     ],
     [
-      0.009763,
+      0.009985,
       "53\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010252,
+      0.013009,
       "54\t\tS\t0:0\t\r\n"
     ],
     [
-      0.01014,
+      0.01047,
       "67\t\tS\t0:0\t\r\n"
     ],
     [
-      0.01001,
-      "187\t\tS\t0:0\t\r\n"
+      0.010504,
+      "108\t\tS\t0:0\t\r\n"
     ],
     [
-      0.009949,
+      0.009889,
       "231\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010293,
+      0.010502,
       "232\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010349,
-      "553\t\tS\t0:0\t\r\n"
+      0.010497,
+      "401\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010458,
-      "780\t\tS\t0:0\t\r\n"
+      0.00972,
+      "473\t\tS\t0:0\t\r\n"
     ],
     [
-      0.009722,
-      "802\t\tS\t0:0\t\r\n"
+      0.010992,
+      "764\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010073,
-      "807\t\tS\t0:0\t\r\n"
+      0.010547,
+      "781\t\tS\t0:0\t\r\n"
     ],
     [
-      0.00987,
-      "819\t\tS\t0:0\t\r\n"
+      0.010066,
+      "788\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010556,
-      "823\t\tS\t0:0\t\r\n"
+      0.010165,
+      "799\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010118,
-      "866\t\tS\t0:0\t\r\n"
+      0.009996,
+      "801\t\tS\t0:0\t\r\n"
     ],
     [
-      0.009455,
-      "895\t\tS\t0:0\t\r\n"
+      0.009904,
+      "891\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010515,
+      0.010363,
       "1918\t\tS\t0:0\t\r\n"
     ],
     [
-      0.009558,
+      0.010202,
+      "1919\t\tS\t0:0\t\r\n"
+    ],
+    [
+      0.010263,
       "1921\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010357,
-      "1922\t\tS\t0:0\t\r\n"
+      0.010276,
+      "1928\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010054,
+      0.010385,
       "1931\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010239,
-      "1933\t\tS\t0:0\t\r\n"
-    ],
-    [
-      0.009905,
+      0.010195,
       "1936\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010225,
+      0.009859,
       "1938\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010531,
+      0.010305,
       "1939\t\tS\t0:0\t\r\n"
     ],
     [
-      0.009671,
+      0.01044,
       "1940\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010731,
+      0.009426,
       "1941\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010327,
-      "1942\t\tS\t0:2\t\r\n"
+      0.010241,
+      "1942\t\tS\t0:1\t\r\n"
     ],
     [
-      0.010205,
+      0.010323,
       "1943\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010785,
-      "2005\t\tS\t0:0\t\r\n"
+      0.012245,
+      "2025\t\tS\t0:0\t/usr/lib/systemd/systemd-journald\r\n"
     ],
     [
-      0.010886,
-      "2023\t\tS\t0:1\t/usr/lib/systemd/systemd-journald\r\n"
+      0.010949,
+      "2050\t\tS\t0:0\t/usr/sbin/lvmetad-f\r\n"
     ],
     [
-      0.01089,
-      "2048\t\tS\t0:0\t/usr/sbin/lvmetad-f\r\n"
+      0.009972,
+      "2058\t\tS\t0:0\t/usr/lib/systemd/systemd-udevd\r\n"
     ],
     [
-      0.011081,
-      "2050\t\tS\t0:0\t/usr/lib/systemd/systemd-udevd\r\n"
+      0.010206,
+      "3755\t\tS\t0:0\t/usr/sbin/rpc.idmapd\r\n"
     ],
     [
-      0.010005,
-      "3746\t\tS\t0:0\t/usr/sbin/rpc.idmapd\r\n"
+      0.010006,
+      "3759\t\tS\t0:0\t/sbin/auditd\r\n"
     ],
     [
-      0.010214,
-      "3751\t\tS\t0:0\t/sbin/auditd\r\n"
+      0.010569,
+      "3781\t\tS\t0:0\t/usr/sbin/irqbalance--foreground\r\n"
     ],
     [
-      0.010283,
-      "3775\t\tS\t0:0\tavahi-daemon: running [wildway1c.local]\r\n"
+      0.010349,
+      "3782\t\tS\t0:0\tavahi-daemon: running [wildway1c.local]\r\n"
     ],
     [
-      0.011117,
-      "3778\t\tS\t0:0\t/sbin/rpcbind-w\r\n"
+      0.010493,
+      "3784\t\tS\t0:1\t/usr/lib/polkit-1/polkitd--no-debug\r\n"
     ],
     [
-      0.01052,
-      "3779\t\tS\t0:0\t/usr/sbin/irqbalance--foreground\r\n"
+      0.011408,
+      "3786\t\tS\t0:0\t/usr/bin/dbus-daemon--system--address=systemd:--nofork--nopidfile--systemd-activation\r\n"
     ],
     [
-      0.010476,
-      "3780\t\tS\t0:0\t/usr/lib/polkit-1/polkitd--no-debug\r\n"
+      0.011365,
+      "3787\t\tS\t0:0\t/sbin/rpcbind-w\r\n"
     ],
     [
-      0.01204,
-      "3782\t\tS\t0:0\t/usr/bin/dbus-daemon--system--address=systemd:--nofork--nopidfile--systemd-activation\r\n"
+      0.0099,
+      "3790\t\tS\t0:0\tavahi-daemon: chroot helper\r\n"
     ],
     [
-      0.010683,
-      "3783\t\tS\t0:0\tavahi-daemon: chroot helper\r\n"
+      0.01104,
+      "3792\t\tS\t0:0\t/usr/sbin/chronyd\r\n"
     ],
     [
-      0.010449,
-      "3785\t\tS\t0:0\t/usr/sbin/chronyd\r\n"
+      0.010227,
+      "3803\t /dev/tty6\tS\t0:0\t/usr/lib/systemd/systemd-logind\r\n"
     ],
     [
-      0.010231,
-      "3801\t /dev/tty6\tS\t0:0\t/usr/lib/systemd/systemd-logind\r\n"
+      0.01088,
+      "3888\t\tS\t0:0\t/usr/sbin/NetworkManager--no-daemon\r\n"
     ],
     [
-      0.009966,
-      "3881\t\tS\t0:0\t/usr/sbin/NetworkManager--no-daemon\r\n"
+      0.010481,
+      "3906\t\tS\t0:0\t/sbin/dhclient-d-q-sf/usr/libexec/nm-dhcp-helper-pf/var/run/dhclient-eth0.pid-lf/var/lib/NetworkManager/dhclient-5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03-eth0.lease-cf/var/lib/NetworkManager/dhclient-eth0.confeth0\r\n"
     ],
     [
-      0.010999,
-      "3907\t\tS\t0:0\t/sbin/dhclient-d-q-sf/usr/libexec/nm-dhcp-helper-pf/var/run/dhclient-eth0.pid-lf/var/lib/NetworkManager/dhclient-5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03-eth0.lease-cf/var/lib/NetworkManager/dhclient-eth0.confeth0\r\n"
+      0.010646,
+      "4143\t\tS\t0:0\t/usr/bin/python2-Es/usr/sbin/tuned-l-P\r\n"
     ],
     [
-      0.011832,
-      "4137\t\tS\t0:0\t/usr/bin/python2-Es/usr/sbin/tuned-l-P\r\n"
+      0.011079,
+      "4266\t\tS\t0:0\t/usr/libexec/postfix/master-w\r\n"
     ],
     [
-      0.010445,
-      "4259\t\tS\t0:0\t/usr/libexec/postfix/master-w\r\n"
+      0.010447,
+      "4267\t\tS\t0:0\tpickup-l-tunix-u\r\n"
     ],
     [
-      0.011348,
-      "4261\t\tS\t0:0\tqmgr-l-tunix-u\r\n"
+      0.01016,
+      "4268\t\tS\t0:0\tqmgr-l-tunix-u\r\n"
     ],
     [
-      0.010651,
-      "4297\t\tS\t0:0\t/usr/sbin/rsyslogd-n\r\n"
+      0.010393,
+      "4305\t\tS\t0:2\t/usr/bin/amazon-ssm-agent\r\n"
     ],
     [
-      0.010632,
-      "4299\t\tS\t0:4\t/usr/bin/amazon-ssm-agent\r\n"
+      0.010523,
+      "4306\t\tS\t0:0\t/usr/sbin/rsyslogd-n\r\n"
     ],
     [
-      0.010532,
-      "4304\t\tS\t0:0\t/usr/sbin/rpc.statd\r\n"
+      0.010212,
+      "4311\t\tS\t0:0\t/usr/sbin/rpc.statd\r\n"
     ],
     [
-      0.011262,
-      "4312\t\tS\t0:0\t/usr/sbin/crond-n\r\n"
-    ],
-    [
-      0.010103,
-      "4317\t\tS\t0:0\t/usr/sbin/rpc.mountd\r\n"
-    ],
-    [
-      0.010653,
-      "4321\t /dev/ttyS0\tS\t0:0\t/sbin/agetty--keep-baud115200384009600ttyS0vt220\r\n"
-    ],
-    [
-      0.010649,
-      "4322\t /dev/tty1\tS\t0:0\t/sbin/agetty--nocleartty1linux\r\n"
-    ],
-    [
-      0.010005,
-      "4327\t\tS\t0:0\t\r\n"
-    ],
-    [
-      0.00965,
-      "4329\t\tS\t0:0\t\r\n"
-    ],
-    [
-      0.010226,
-      "4331\t\tS\t0:0\t\r\n"
-    ],
-    [
-      0.010637,
-      "4341\t\tS\t0:0\t\r\n"
-    ],
-    [
-      0.010067,
-      "4342\t\tS\t0:0\t\r\n"
-    ],
-    [
-      0.010084,
-      "4343\t\tS\t0:0\t\r\n"
-    ],
-    [
-      0.010398,
-      "4344\t\tS\t0:0\t\r\n"
-    ],
-    [
-      0.010225,
-      "4345\t\tS\t0:0\t\r\n"
-    ],
-    [
-      0.009729,
-      "4346\t\tS\t0:0\t\r\n"
-    ],
-    [
-      0.010073,
-      "4347\t\tS\t0:0\t\r\n"
-    ],
-    [
-      0.010057,
-      "4348\t\tS\t0:0\t\r\n"
-    ],
-    [
-      0.010943,
-      "4355\t\tS\t0:0\t/usr/sbin/gssproxy-D\r\n"
-    ],
-    [
-      0.009903,
-      "4473\t\tS\t0:0\t/usr/bin/Xvnc:1-auth/home/cloud_user/.Xauthority-desktopwildway1c.mylabserver.com:1 (cloud_user)-fpcatalogue:/etc/X11/fontpath.d-geometry1024x768-pn-rfbauth/home/cloud_user/.vnc/passwd-rfbport5901-rfbwait30000\r\n"
-    ],
-    [
-      0.010664,
-      "4480\t\tS\t0:0\t/usr/libexec/gnome-session-binary--session=gnome-classic\r\n"
-    ],
-    [
-      0.010039,
-      "4491\t\tS\t0:0\tdbus-launch--sh-syntax--exit-with-session\r\n"
-    ],
-    [
-      0.010426,
-      "4492\t\tS\t0:0\t/usr/bin/dbus-daemon--fork--print-pid5--print-address8--session\r\n"
-    ],
-    [
-      0.010159,
-      "4497\t\tS\t0:0\t/usr/bin/ssh-agent/etc/X11/xinit/Xclients\r\n"
-    ],
-    [
-      0.010612,
-      "4511\t\tS\t0:0\t/usr/libexec/at-spi-bus-launcher\r\n"
-    ],
-    [
-      0.010226,
-      "4516\t\tS\t0:0\t/usr/bin/dbus-daemon--config-file=/usr/share/defaults/at-spi2/accessibility.conf--nofork--print-address3\r\n"
-    ],
-    [
-      0.010154,
-      "4519\t\tS\t0:0\t/usr/libexec/at-spi2-registryd--use-gnome-session\r\n"
-    ],
-    [
-      0.010099,
-      "4523\t\tS\t0:0\t/usr/libexec/gvfsd\r\n"
-    ],
-    [
-      0.010394,
-      "4550\t\tS\t0:0\t/usr/bin/gnome-keyring-daemon--start--components=pkcs11\r\n"
-    ],
-    [
-      0.010156,
-      "4561\t\tS\t0:4\t/usr/bin/gnome-shell\r\n"
-    ],
-    [
-      0.011547,
-      "4567\t\tS\t0:0\t/usr/libexec/upowerd\r\n"
-    ],
-    [
-      0.010825,
-      "4584\t\tS\t0:0\t/usr/bin/pulseaudio--start--log-target=syslog\r\n"
-    ],
-    [
-      0.010023,
-      "4585\t\tS\t0:0\t/usr/libexec/rtkit-daemon\r\n"
-    ],
-    [
-      0.010364,
-      "4620\t\tS\t0:0\tibus-daemon--xim--paneldisable\r\n"
-    ],
-    [
-      0.009985,
-      "4624\t\tS\t0:0\t/usr/libexec/ibus-dconf\r\n"
-    ],
-    [
-      0.010229,
-      "4626\t\tS\t0:0\t/usr/libexec/ibus-x11--kill-daemon\r\n"
-    ],
-    [
-      0.010298,
-      "4631\t\tS\t0:0\t/usr/libexec/ibus-portal\r\n"
-    ],
-    [
-      0.010486,
-      "4632\t\tS\t0:0\t/sbin/dhclient-d-q-6-N-sf/usr/libexec/nm-dhcp-helper-pf/var/run/dhclient6-eth0.pid-lf/var/lib/NetworkManager/dhclient6-5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03-eth0.lease-cf/var/lib/NetworkManager/dhclient6-eth0.confeth0\r\n"
-    ],
-    [
-      0.010445,
-      "4644\t\tS\t0:0\t/usr/libexec/xdg-permission-store\r\n"
-    ],
-    [
-      0.009894,
-      "4650\t\tS\t0:0\t/usr/libexec/gnome-shell-calendar-server\r\n"
-    ],
-    [
-      0.01083,
-      "4655\t\tS\t0:0\t/usr/libexec/evolution-source-registry\r\n"
-    ],
-    [
-      0.010348,
-      "4659\t\tS\t0:0\t/usr/libexec/accounts-daemon\r\n"
-    ],
-    [
-      0.010389,
-      "4665\t\tS\t0:0\t/usr/libexec/goa-daemon\r\n"
-    ],
-    [
-      0.010352,
-      "4671\t\tS\t0:0\t/usr/libexec/boltd\r\n"
-    ],
-    [
-      0.010682,
-      "4681\t\tS\t0:0\t/usr/sbin/wpa_supplicant-u-f/var/log/wpa_supplicant.log-c/etc/wpa_supplicant/wpa_supplicant.conf-P/var/run/wpa_supplicant.pid\r\n"
-    ],
-    [
-      0.010071,
-      "4705\t\tS\t0:0\t/usr/libexec/gvfs-udisks2-volume-monitor\r\n"
-    ],
-    [
-      0.010489,
-      "4714\t\tS\t0:0\t/usr/libexec/goa-identity-service\r\n"
-    ],
-    [
-      0.010018,
-      "4727\t\tS\t0:0\t/usr/libexec/udisks2/udisksd\r\n"
-    ],
-    [
-      0.010479,
-      "4761\t\tS\t0:0\t/usr/libexec/gsd-power\r\n"
-    ],
-    [
-      0.010556,
-      "4762\t\tS\t0:0\t/usr/libexec/gsd-print-notifications\r\n"
-    ],
-    [
-      0.009574,
-      "4764\t\tS\t0:0\t/usr/libexec/gsd-rfkill\r\n"
-    ],
-    [
-      0.010258,
-      "4772\t\tS\t0:0\t/usr/libexec/gsd-screensaver-proxy\r\n"
-    ],
-    [
-      0.010123,
-      "4774\t\tS\t0:0\t/usr/libexec/gsd-sharing\r\n"
-    ],
-    [
-      0.010848,
-      "4780\t\tS\t0:0\t/usr/libexec/gsd-xsettings\r\n"
-    ],
-    [
-      0.009759,
-      "4782\t\tS\t0:0\t/usr/libexec/gsd-wacom\r\n"
-    ],
-    [
-      0.010204,
-      "4783\t\tS\t0:0\t/usr/libexec/gsd-smartcard\r\n"
-    ],
-    [
-      0.010252,
-      "4785\t\tS\t0:0\t/usr/libexec/gsd-sound\r\n"
-    ],
-    [
-      0.010574,
-      "4790\t\tS\t0:0\t/usr/libexec/gsd-account\r\n"
-    ],
-    [
-      0.010638,
-      "4797\t\tS\t0:0\t/usr/libexec/gsd-a11y-settings\r\n"
-    ],
-    [
-      0.010051,
-      "4799\t\tS\t0:0\t/usr/libexec/gsd-clipboard\r\n"
-    ],
-    [
-      0.010436,
-      "4801\t\tS\t0:0\t/usr/libexec/gsd-color\r\n"
-    ],
-    [
-      0.009833,
-      "4802\t\tS\t0:0\t/usr/libexec/gsd-datetime\r\n"
-    ],
-    [
-      0.010605,
-      "4803\t\tS\t0:0\t/usr/libexec/gsd-housekeeping\r\n"
-    ],
-    [
-      0.010316,
-      "4806\t\tS\t0:0\t/usr/libexec/gsd-keyboard\r\n"
-    ],
-    [
-      0.010654,
-      "4812\t\tS\t0:0\t/usr/libexec/gsd-media-keys\r\n"
-    ],
-    [
-      0.01056,
-      "4816\t\tS\t0:0\t/usr/libexec/gsd-mouse\r\n"
-    ],
-    [
-      0.01057,
-      "4839\t\tS\t0:0\t/usr/libexec/gsd-printer\r\n"
-    ],
-    [
-      0.010801,
-      "4844\t\tS\t0:0\t/usr/libexec/colord\r\n"
-    ],
-    [
-      0.01044,
-      "4863\t\tS\t0:0\tnautilus-desktop--force\r\n"
-    ],
-    [
-      0.010044,
-      "4871\t\tS\t0:0\t/usr/libexec/evolution-calendar-factory\r\n"
-    ],
-    [
-      0.010714,
-      "4885\t\tS\t0:0\t/usr/libexec/gvfsd-trash--spawner:1.6/org/gtk/gvfs/exec_spaw/0\r\n"
-    ],
-    [
-      0.010532,
-      "4897\t\tS\t0:0\t/usr/libexec/tracker-miner-fs\r\n"
-    ],
-    [
-      0.010134,
-      "4899\t\tS\t0:0\t/usr/libexec/tracker-miner-user-guides\r\n"
-    ],
-    [
-      0.010012,
-      "4902\t\tS\t0:0\t/usr/libexec/evolution-calendar-factory-subprocess--factoryall--bus-nameorg.gnome.evolution.dataserver.Subprocess.Backend.Calendarx4871x2--own-path/org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/4871/2\r\n"
-    ],
-    [
-      0.009777,
-      "4916\t\tS\t0:0\t/usr/libexec/tracker-store\r\n"
-    ],
-    [
-      0.010391,
-      "4918\t\tS\t0:0\t/usr/libexec/tracker-extract\r\n"
-    ],
-    [
-      0.010278,
-      "4920\t\tS\t0:0\t/usr/libexec/tracker-miner-apps\r\n"
-    ],
-    [
-      0.010091,
-      "4950\t\tS\t0:0\t/usr/libexec/dconf-service\r\n"
-    ],
-    [
-      0.009984,
-      "4952\t\tS\t0:0\t/usr/libexec/evolution-addressbook-factory\r\n"
-    ],
-    [
-      0.010201,
-      "4978\t\tS\t0:0\t/usr/libexec/evolution-addressbook-factory-subprocess--factoryall--bus-nameorg.gnome.evolution.dataserver.Subprocess.Backend.AddressBookx4952x2--own-path/org/gnome/evolution/dataserver/Subprocess/Backend/AddressBook/4952/2\r\n"
-    ],
-    [
-      0.009968,
-      "4982\t\tS\t0:0\t/usr/libexec/ibus-engine-simple\r\n"
-    ],
-    [
-      0.011207,
-      "5111\t\tS\t0:14\t/opt/websh/.nvm/versions/node/v8.12.0/bin/nodeapp.js--sslkey../../ssl/key.pem--sslcert../../ssl/cert.pem-p31297\r\n"
-    ],
-    [
-      0.010134,
-      "5147\t\tS\t0:0\t/usr/sbin/sshd-D\r\n"
-    ],
-    [
-      0.00964,
-      "5201\t\tS\t0:0\tlogin -- cloud_user\r\n"
-    ],
-    [
-      0.010728,
-      "5212\t /dev/pts/1\tS\t0:0\t-bash\r\n"
-    ],
-    [
-      0.009744,
-      "5306\t /dev/pts/1\tS\t0:0\tsudosu-\r\n"
-    ],
-    [
-      0.010834,
-      "5310\t /dev/pts/1\tS\t0:0\tsu-\r\n"
-    ],
-    [
-      0.009863,
-      "5311\t /dev/pts/1\tS\t0:0\t-bash\r\n"
-    ],
-    [
-      0.010128,
-      "5993\t\tS\t0:0\tlogin -- cloud_user\r\n"
-    ],
-    [
-      0.010466,
-      "5998\t /dev/pts/0\tS\t0:0\t-bash\r\n"
-    ],
-    [
-      0.01053,
-      "6092\t /dev/pts/0\tS\t0:0\tsudosu-\r\n"
-    ],
-    [
-      0.010735,
-      "6096\t /dev/pts/0\tS\t0:0\tsu-\r\n"
+      0.011549,
+      "4315\t\tS\t0:0\t/usr/sbin/crond-n\r\n"
     ],
     [
       0.010269,
-      "6097\t /dev/pts/0\tS\t0:0\t-bash\r\n"
+      "4324\t /dev/tty1\tS\t0:0\t/sbin/agetty--nocleartty1linux\r\n"
     ],
     [
-      0.010217,
-      "19791\t\tS\t0:0\t\r\n"
+      0.010098,
+      "4326\t /dev/ttyS0\tS\t0:0\t/sbin/agetty--keep-baud115200384009600ttyS0vt220\r\n"
     ],
     [
-      0.010508,
-      "24023\t\tS\t0:0\tpickup-l-tunix-u\r\n"
+      0.009662,
+      "4327\t\tS\t0:0\t/usr/sbin/rpc.mountd\r\n"
     ],
     [
-      0.010115,
-      "27751\t\tS\t0:0\t\r\n"
+      0.010487,
+      "4333\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010056,
-      "27896\t\tS\t0:0\t\r\n"
+      0.010567,
+      "4335\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010032,
-      "28110\t\tS\t0:0\t\r\n"
+      0.010257,
+      "4336\t\tS\t0:0\t\r\n"
     ],
     [
-      0.009863,
-      "30818\t /dev/pts/0\tS\t0:0\t/usr/bin/python3.4/bin/asciinemarec\r\n"
+      0.01038,
+      "4346\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010631,
-      "30821\t /dev/pts/2\tS\t0:0\t/bin/bash\r\n"
+      0.010045,
+      "4347\t\tS\t0:0\t\r\n"
     ],
     [
-      0.010725,
-      "30906\t /dev/pts/2\tS\t0:0\tbash./ps_ax.sh\r\n"
+      0.010708,
+      "4348\t\tS\t0:0\t\r\n"
     ],
     [
-      0.001439,
-      "awk: fatal: cannot open file `/proc/30907/stat' for reading (No such file or directory)\r\n"
+      0.010341,
+      "4349\t\tS\t0:0\t\r\n"
     ],
     [
-      0.000992,
-      "ls: cannot access /proc/30907/fd/: No such file or directory\r\n"
+      0.010628,
+      "4350\t\tS\t0:0\t\r\n"
     ],
     [
-      0.002765,
-      "awk: fatal: cannot open file `/proc/30907/stat' for reading (No such file or directory)\r\n"
+      0.010048,
+      "4351\t\tS\t0:0\t\r\n"
     ],
     [
-      0.001115,
-      "awk: fatal: cannot open file `/proc/30907/stat' for reading (No such file or directory)\r\n"
+      0.010324,
+      "4352\t\tS\t0:0\t\r\n"
     ],
     [
-      0.001136,
-      "./ps_ax.sh: line 18: / 100 / 60 : syntax error: operand expected (error token is \"/ 100 / 60 \")\r\n"
+      0.01051,
+      "4353\t\tS\t0:0\t\r\n"
     ],
     [
-      0.000721,
-      "\u001b]0;root@wildway1c:/tmp\u0007[root@wildway1c tmp]# "
+      0.010299,
+      "4359\t\tS\t0:0\t/usr/sbin/gssproxy-D\r\n"
+    ],
+    [
+      0.010596,
+      "4482\t\tS\t0:0\t/sbin/dhclient-d-q-6-N-sf/usr/libexec/nm-dhcp-helper-pf/var/run/dhclient6-eth0.pid-lf/var/lib/NetworkManager/dhclient6-5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03-eth0.lease-cf/var/lib/NetworkManager/dhclient6-eth0.confeth0\r\n"
+    ],
+    [
+      0.010804,
+      "4687\t\tS\t0:0\t/usr/libexec/upowerd\r\n"
+    ],
+    [
+      0.010129,
+      "4697\t\tS\t0:0\t/usr/bin/pulseaudio--start--log-target=syslog\r\n"
+    ],
+    [
+      0.010236,
+      "4698\t\tS\t0:0\t/usr/libexec/rtkit-daemon\r\n"
+    ],
+    [
+      0.010549,
+      "4767\t\tS\t0:0\t/usr/libexec/accounts-daemon\r\n"
+    ],
+    [
+      0.010276,
+      "4780\t\tS\t0:0\t/usr/libexec/boltd\r\n"
+    ],
+    [
+      0.010513,
+      "4802\t\tS\t0:0\t/usr/sbin/wpa_supplicant-u-f/var/log/wpa_supplicant.log-c/etc/wpa_supplicant/wpa_supplicant.conf-P/var/run/wpa_supplicant.pid\r\n"
+    ],
+    [
+      0.010533,
+      "4821\t\tS\t0:0\t/usr/libexec/udisks2/udisksd\r\n"
+    ],
+    [
+      0.010135,
+      "4935\t\tS\t0:0\t/usr/libexec/colord\r\n"
+    ],
+    [
+      0.011048,
+      "5156\t\tS\t0:22\t/opt/websh/.nvm/versions/node/v8.12.0/bin/nodeapp.js--sslkey../../ssl/key.pem--sslcert../../ssl/cert.pem-p31297\r\n"
+    ],
+    [
+      0.010695,
+      "5298\t\tS\t0:0\t/usr/sbin/sshd-D\r\n"
+    ],
+    [
+      0.010841,
+      "5321\t\tS\t0:0\t/usr/bin/Xvnc:1-auth/home/cloud_user/.Xauthority-desktopwildway1c.mylabserver.com:1 (cloud_user)-fpcatalogue:/etc/X11/fontpath.d-geometry1024x768-pn-rfbauth/home/cloud_user/.vnc/passwd-rfbport5901-rfbwait30000\r\n"
+    ],
+    [
+      0.011072,
+      "5329\t\tS\t0:0\t/usr/libexec/gnome-session-binary--session=gnome-classic\r\n"
+    ],
+    [
+      0.010797,
+      "5338\t\tS\t0:0\tdbus-launch--sh-syntax--exit-with-session\r\n"
+    ],
+    [
+      0.010775,
+      "5339\t\tS\t0:0\t/usr/bin/dbus-daemon--fork--print-pid5--print-address8--session\r\n"
+    ],
+    [
+      0.010409,
+      "5344\t\tS\t0:0\t/usr/bin/ssh-agent/etc/X11/xinit/Xclients\r\n"
+    ],
+    [
+      0.010282,
+      "5358\t\tS\t0:0\t/usr/libexec/at-spi-bus-launcher\r\n"
+    ],
+    [
+      0.010008,
+      "5363\t\tS\t0:0\t/usr/bin/dbus-daemon--config-file=/usr/share/defaults/at-spi2/accessibility.conf--nofork--print-address3\r\n"
+    ],
+    [
+      0.010154,
+      "5367\t\tS\t0:0\t/usr/libexec/at-spi2-registryd--use-gnome-session\r\n"
+    ],
+    [
+      0.010763,
+      "5370\t\tS\t0:0\t/usr/libexec/gvfsd\r\n"
+    ],
+    [
+      0.009864,
+      "5394\t\tS\t0:0\t/usr/bin/gnome-keyring-daemon--start--components=ssh\r\n"
+    ],
+    [
+      0.011116,
+      "5406\t\tS\t0:3\t/usr/bin/gnome-shell\r\n"
+    ],
+    [
+      0.009807,
+      "5424\t\tS\t0:0\tibus-daemon--xim--paneldisable\r\n"
+    ],
+    [
+      0.010685,
+      "5428\t\tS\t0:0\t/usr/libexec/ibus-dconf\r\n"
+    ],
+    [
+      0.010487,
+      "5432\t\tS\t0:0\t/usr/libexec/ibus-x11--kill-daemon\r\n"
+    ],
+    [
+      0.010034,
+      "5437\t\tS\t0:0\t/usr/libexec/ibus-portal\r\n"
+    ],
+    [
+      0.010313,
+      "5445\t\tS\t0:0\t/usr/libexec/xdg-permission-store\r\n"
+    ],
+    [
+      0.00975,
+      "5450\t\tS\t0:0\t/usr/libexec/gnome-shell-calendar-server\r\n"
+    ],
+    [
+      0.010427,
+      "5455\t\tS\t0:0\t/usr/libexec/evolution-source-registry\r\n"
+    ],
+    [
+      0.010467,
+      "5461\t\tS\t0:0\t/usr/libexec/goa-daemon\r\n"
+    ],
+    [
+      0.01024,
+      "5474\t\tS\t0:0\t/usr/libexec/goa-identity-service\r\n"
+    ],
+    [
+      0.010301,
+      "5496\t\tS\t0:0\t/usr/libexec/gvfs-udisks2-volume-monitor\r\n"
+    ],
+    [
+      0.010661,
+      "5500\t\tS\t0:0\t/usr/libexec/gsd-power\r\n"
+    ],
+    [
+      0.010777,
+      "5501\t\tS\t0:0\t/usr/libexec/gsd-print-notifications\r\n"
+    ],
+    [
+      0.010561,
+      "5505\t\tS\t0:0\t/usr/libexec/gsd-rfkill\r\n"
+    ],
+    [
+      0.010602,
+      "5510\t\tS\t0:0\t/usr/libexec/gsd-screensaver-proxy\r\n"
+    ],
+    [
+      0.010583,
+      "5513\t\tS\t0:0\t/usr/libexec/gsd-sharing\r\n"
+    ],
+    [
+      0.011201,
+      "5520\t\tS\t0:0\t/usr/libexec/gsd-xsettings\r\n"
+    ],
+    [
+      0.01019,
+      "5522\t\tS\t0:0\t/usr/libexec/gsd-wacom\r\n"
+    ],
+    [
+      0.010532,
+      "5523\t\tS\t0:0\t/usr/libexec/gsd-smartcard\r\n"
+    ],
+    [
+      0.010099,
+      "5528\t\tS\t0:0\t/usr/libexec/gsd-sound\r\n"
+    ],
+    [
+      0.010765,
+      "5531\t\tS\t0:0\t/usr/libexec/gsd-account\r\n"
+    ],
+    [
+      0.010673,
+      "5537\t\tS\t0:0\t/usr/libexec/gsd-a11y-settings\r\n"
+    ],
+    [
+      0.010678,
+      "5539\t\tS\t0:0\t/usr/libexec/gsd-clipboard\r\n"
+    ],
+    [
+      0.01001,
+      "5541\t\tS\t0:0\t/usr/libexec/gsd-color\r\n"
+    ],
+    [
+      0.011077,
+      "5544\t\tS\t0:0\t/usr/libexec/gsd-datetime\r\n"
+    ],
+    [
+      0.010852,
+      "5545\t\tS\t0:0\t/usr/libexec/gsd-housekeeping\r\n"
+    ],
+    [
+      0.010524,
+      "5548\t\tS\t0:0\t/usr/libexec/gsd-keyboard\r\n"
+    ],
+    [
+      0.009844,
+      "5552\t\tS\t0:0\t/usr/libexec/gsd-media-keys\r\n"
+    ],
+    [
+      0.010437,
+      "5553\t\tS\t0:0\t/usr/libexec/gsd-mouse\r\n"
+    ],
+    [
+      0.010451,
+      "5567\t\tS\t0:0\t/usr/libexec/gsd-printer\r\n"
+    ],
+    [
+      0.010258,
+      "5608\t\tS\t0:0\t/usr/libexec/evolution-calendar-factory\r\n"
+    ],
+    [
+      0.010567,
+      "5611\t\tS\t0:0\tnautilus-desktop--force\r\n"
+    ],
+    [
+      0.009795,
+      "5616\t\tS\t0:0\t/usr/libexec/evolution-calendar-factory-subprocess--factoryall--bus-nameorg.gnome.evolution.dataserver.Subprocess.Backend.Calendarx5608x2--own-path/org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/5608/2\r\n"
+    ],
+    [
+      0.011286,
+      "5623\t\tS\t0:0\t/usr/libexec/gvfsd-trash--spawner:1.6/org/gtk/gvfs/exec_spaw/0\r\n"
+    ],
+    [
+      0.010043,
+      "5635\t\tS\t0:0\t/usr/libexec/tracker-miner-fs\r\n"
+    ],
+    [
+      0.010534,
+      "5639\t\tS\t0:0\t/usr/libexec/tracker-miner-user-guides\r\n"
+    ],
+    [
+      0.010448,
+      "5653\t\tS\t0:0\t/usr/libexec/dconf-service\r\n"
+    ],
+    [
+      0.009979,
+      "5659\t\tS\t0:0\t/usr/libexec/evolution-addressbook-factory\r\n"
+    ],
+    [
+      0.010015,
+      "5660\t\tS\t0:0\t/usr/libexec/tracker-extract\r\n"
+    ],
+    [
+      0.010229,
+      "5667\t\tS\t0:0\t/usr/libexec/tracker-miner-apps\r\n"
+    ],
+    [
+      0.010178,
+      "5668\t\tS\t0:0\t/usr/libexec/tracker-store\r\n"
+    ],
+    [
+      0.00985,
+      "5709\t\tS\t0:0\t/usr/libexec/evolution-addressbook-factory-subprocess--factoryall--bus-nameorg.gnome.evolution.dataserver.Subprocess.Backend.AddressBookx5659x2--own-path/org/gnome/evolution/dataserver/Subprocess/Backend/AddressBook/5659/2\r\n"
+    ],
+    [
+      0.01068,
+      "5714\t\tS\t0:0\t/usr/libexec/ibus-engine-simple\r\n"
+    ],
+    [
+      0.010484,
+      "5806\t\tS\t0:0\tlogin -- cloud_user\r\n"
+    ],
+    [
+      0.010713,
+      "5813\t /dev/pts/0\tS\t0:0\t-bash\r\n"
+    ],
+    [
+      0.010165,
+      "5913\t /dev/pts/0\tS\t0:0\tsudosu-\r\n"
+    ],
+    [
+      0.010254,
+      "5917\t /dev/pts/0\tS\t0:0\tsu-\r\n"
+    ],
+    [
+      0.010414,
+      "5918\t /dev/pts/0\tS\t0:0\t-bash\r\n"
+    ],
+    [
+      0.009958,
+      "13501\t\tS\t0:0\t\r\n"
+    ],
+    [
+      0.010479,
+      "18991\t\tS\t0:0\t\r\n"
+    ],
+    [
+      0.009696,
+      "19064\t\tS\t0:0\t\r\n"
+    ],
+    [
+      0.010542,
+      "20094\t /dev/pts/0\tS\t0:0\t-bash\r\n"
+    ],
+    [
+      0.010796,
+      "20095\t /dev/pts/0\tS\t0:0\tbash\r\n"
+    ],
+    [
+      0.010295,
+      "20222\t /dev/pts/0\tS\t0:0\tbash\r\n"
+    ],
+    [
+      0.010816,
+      "20223\t /dev/pts/0\tS\t0:0\tbash\r\n"
+    ],
+    [
+      0.010291,
+      "20310\t /dev/pts/0\tS\t0:0\tbash\r\n"
+    ],
+    [
+      0.009745,
+      "20311\t /dev/pts/0\tS\t0:0\tbash\r\n"
+    ],
+    [
+      0.010442,
+      "20396\t /dev/pts/0\tS\t0:0\tbash\r\n"
+    ],
+    [
+      0.010549,
+      "20397\t /dev/pts/0\tS\t0:0\tbash\r\n"
+    ],
+    [
+      0.010226,
+      "21103\t\tS\t0:0\t\r\n"
+    ],
+    [
+      0.010367,
+      "21133\t\tS\t0:0\t\r\n"
+    ],
+    [
+      0.010812,
+      "25243\t /dev/pts/0\tS\t0:0\t/usr/bin/python3.4/bin/asciinemarec\r\n"
+    ],
+    [
+      0.010258,
+      "25245\t /dev/pts/1\tS\t0:0\t/bin/bash\r\n"
+    ],
+    [
+      0.010436,
+      "25327\t /dev/pts/1\tS\t0:0\tbash./ps_ax.sh\r\n\u001b]0;root@wildway1c:~\u0007[root@wildway1c ~]# "
     ]
   ],
-  "height": 50,
-  "width": 210,
-  "title": null
+  "title": null,
+  "env": {
+    "TERM": "xterm-256color",
+    "SHELL": "/bin/bash"
+  },
+  "command": null,
+  "version": 1,
+  "height": 52,
+  "duration": 4.34626,
+  "width": 210
 }
