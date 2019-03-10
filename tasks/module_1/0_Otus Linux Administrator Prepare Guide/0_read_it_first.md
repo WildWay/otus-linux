@@ -6,4 +6,4 @@
 3. VirtualBox/KVM/Boxes?/VmWare
 4. Vagrant
 5. Fedora
-6. 
+6. cheatsheat X - краткая информация по X
