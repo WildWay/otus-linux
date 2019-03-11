@@ -47,3 +47,15 @@
     - [Инструкция по выполнению задачи](tasks/module_1/6_Package_Management_Software_distribution/6_task_guide.md)
         - [nginx.spec - изменённый файл spec](tasks/module_1/6_Package_Management_Software_distribution/nginx.spec)
 
+1. #### Загрузка системы
+    - [`Задача 7`](tasks/module_1/7_System_boot/7_task.md)
+        - Попасть в систему без пароля несколькими способами:
+            1. [Способ 1](tasks/module_1/7_System_boot/7_task_1_1.webm)
+            2. [Способ 2](tasks/module_1/7_System_boot/7_task_1_2.webm)
+            3. [Способ 3](tasks/module_1/7_System_boot/7_task_1_3.webm)
+        - [Переименовать LVM в системе](tasks/module_1/7_System_boot/7_task_2.webm)
+        - [Добавить модуль в initrd](tasks/module_1/7_System_boot/7_task_3.webm)
+    - [Конспект](tasks/module_1/7_System_boot/7_abstract.md)
+    - Модуль 01test:
+        - [module-setup.sh](tasks/module_1/7_System_boot/01test/module-setup.sh)
+        - [test.sh](tasks/module_1/7_System_boot/01test/test.sh)
