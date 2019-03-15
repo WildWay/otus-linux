@@ -1,0 +1,11 @@
+[Unit]
+Description=Run watchlog script every 2 second
+
+[Timer]
+OnBootSec=1
+OnUnitActiveSec=2
+AccuracySec=1us
+Unit=watchlog.service
+
+[Install]
+WantedBy=multi-user.target
