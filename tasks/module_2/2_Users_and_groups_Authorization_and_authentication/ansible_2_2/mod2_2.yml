@@ -1,0 +1,58 @@
+--- 
+- name: Задача 1. Запретить всем пользователям, кроме группы admin логин в выходные и праздничные дни
+  hosts: mod2_2
+  become: true
+
+  tasks:
+    - name: Установить EPEL Repo package
+      yum:
+        name: epel-release
+        state: present
+
+    - name: Установить pam_script
+      yum:
+        name: pam_script
+        state: present
+
+    - name: Создать группу "admin"
+      group:
+        name: admin
+        state: present
+
+    - name: Добавить пользователя vagrant в группу admin
+      user:
+        name: vagrant
+        groups: admin
+        append: yes
+
+    - name: Добавить /etc/pam-script.d/pam_script_acct
+      template:
+        src: ./conf_files/pam_script_acct
+        dest: /etc/pam-script.d/pam_script_acct
+        owner: root
+        group: root
+        mode: 0755
+
+    - name: Заменить /etc/pam.d/sshd
+      template:
+        src: ./conf_files/sshd
+        dest: /etc/pam.d/sshd
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: Заменить /etc/pam.d/login
+      template:
+        src: ./conf_files/login
+        dest: /etc/pam.d/login
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: Добавить вывод сообщения при входе в систему о фильтрации скриптом pam_script
+      lineinfile: 
+        dest=/etc/profile
+        regexp=''
+        insertafter=EOF
+        line='\ntail -n 3 /var/log/pam_script.log'
+...
