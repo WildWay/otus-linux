@@ -1,0 +1,12 @@
+--- 
+- name: Задача 1. Запретить всем пользователям, кроме группы admin логин в выходные и праздничные дни
+  hosts: mod2-3
+  become: true
+
+  tasks:
+    - name: Установить EPEL Repo package
+      yum:
+        name: epel-release
+        state: present
+
+...
