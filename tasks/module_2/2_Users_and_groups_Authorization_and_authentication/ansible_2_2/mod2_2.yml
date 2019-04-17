@@ -49,6 +49,14 @@
         group: root
         mode: 0644
 
+    - name: Заменить /etc/pam.d/login
+      template:
+        src: ./conf_files/su
+        dest: /etc/pam.d/su
+        owner: root
+        group: root
+        mode: 0644
+
     - name: Добавить вывод сообщения при входе в систему о фильтрации скриптом pam_script
       lineinfile: 
         dest=/etc/profile
