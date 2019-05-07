@@ -1,0 +1,21 @@
+---
+- service:
+    name: firewalld
+    enabled: yes
+    state: started
+
+- firewalld:
+    service: "{{ item }}"
+    state: enabled
+    permanent: yes
+  with_items:
+    - freeipa-ldap
+    - http
+    - https
+    - dns
+    - ntp
+    - kerberos
+  notify:
+    - reload firewalld
+
+...

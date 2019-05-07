@@ -1,0 +1,17 @@
+---
+- name: Configure hosts
+  import_tasks: configure_hosts.yml
+
+- name: Disable chronyd
+  import_tasks: disable_chronyd.yml
+
+- name: Install FreeIPA server's packages
+  import_tasks: install_packages.yml
+
+- name: Configure FreeIPA server
+  import_tasks: configure_freeipa.yml
+
+- name: Configure Firewall
+  import_tasks: configure_firewall.yml
+
+...

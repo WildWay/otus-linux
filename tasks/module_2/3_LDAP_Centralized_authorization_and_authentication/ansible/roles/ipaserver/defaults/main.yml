@@ -1,0 +1,10 @@
+---
+freeipa_server_fqdn: ipaserver.wildway.lan
+freeipa_domain: wildway.lan
+freeipa_realm: WILDWAY.LAN
+freeipa_server_admin_password: 123qwe4R5T
+freeipa_server_ds_password: 123qwe4R5T
+dns_forwarder_1: 8.8.8.8
+dns_forwarder_2: 77.88.8.8
+
+...

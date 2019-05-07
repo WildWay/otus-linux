@@ -1,0 +1,7 @@
+---
+- service:
+    name: chronyd
+    enabled: no
+    state: stopped
+
+...

@@ -1,0 +1,8 @@
+---
+- name: FreeIPA server install and configure
+  hosts: ipaserver
+  become: yes
+  
+  roles:
+  - role: ipaserver
+    state: present

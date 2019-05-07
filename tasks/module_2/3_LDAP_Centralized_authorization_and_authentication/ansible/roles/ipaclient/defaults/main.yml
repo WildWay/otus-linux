@@ -1,0 +1,9 @@
+---
+freeipa_server_fqdn: ipaserver.wildway.lan
+freeipa_domain: wildway.lan
+freeipa_realm: WILDWAY.LAN
+freeipa_server_admin_password: 123qwe4R5T
+freeipa_server_admin_acc: admin
+freeipa_client_fqdn: ipaclient.wildway.lan
+
+...

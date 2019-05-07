@@ -2,9 +2,19 @@
 # vim: set ft=ruby :
 
 MACHINES = {
-  :"mod2-3" => {
-        :box_name => "centos/7",
-        :ip_addr => '192.168.11.150'
+  :"ipaserver" => {
+    :box_name => "centos/7",
+    :ip_addr => "192.168.11.250",
+    :memory => "2048",
+    :shell => "ipaserver.sh",
+    :ansible => "ipaserver.yml"
+  },
+  :"ipaclient" => {
+    :box_name => "centos/7",
+    :ip_addr => "192.168.11.251",
+    :memory => "256",
+    :shell => "ipaclient.sh",
+    :ansible => "ipaclient.yml"
   }
 }
 
@@ -12,33 +22,19 @@ Vagrant.configure("2") do |config|
 
   MACHINES.each do |boxname, boxconfig|
 
-      config.vm.define boxname do |box|
-
-          box.vm.box = boxconfig[:box_name]
-          box.vm.host_name = boxname.to_s
-
-          box.vm.network "private_network", ip: boxconfig[:ip_addr]
-
-          box.vm.provider :virtualbox do |vb|
-            vb.customize ["modifyvm", :id, "--memory", "200"]
-          end
-
-          box.vm.provision "shell", inline: <<-SHELL
-            mkdir -p ~root/.ssh; cp ~vagrant/.ssh/auth* ~root/.ssh
-            sed -i '65s/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
-            systemctl restart sshd
-
-            yum install -y ansible
-
-            cp -R /vagrant/ansible_mod2-3/ ~/ansible
-            cd ~/ansible
-            ansible-playbook -i inventory.yml mod2-3.yml
-
-            echo "============================================"
-            for ip in $(hostname -I); do echo "IP адрес для подключения - $ip"; done
-            echo "============================================"
-
-          SHELL
+    config.vm.define boxname do |box|
+      box.vm.box = boxconfig[:box_name]
+      box.vm.host_name = boxname.to_s
+      box.vm.network "private_network", ip: boxconfig[:ip_addr]
+      box.vm.provision "shell", path: "shell/" + boxconfig[:shell]
+      box.vm.provider "virtualbox" do |vb|
+        vb.name = boxname.to_s
+        vb.memory = boxconfig[:memory]
       end
+      box.vm.provision "ansible_local" do |ansible|
+        ansible.playbook = "ansible/" + boxconfig[:ansible]
+	    end
+      config.vm.provision "shell", path: "shell/test_task.sh"
+    end
   end
 end

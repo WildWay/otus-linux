@@ -1,0 +1,8 @@
+---
+- yum:
+    name:
+      - ipa-server
+      - ipa-server-dns
+    state: installed
+
+...

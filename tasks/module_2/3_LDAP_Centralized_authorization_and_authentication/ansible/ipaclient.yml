@@ -1,0 +1,8 @@
+---
+- name: FreeIPA client install and configure
+  hosts: ipaclient
+  become: yes
+  
+  roles:
+  - role: ipaclient
+    state: present
