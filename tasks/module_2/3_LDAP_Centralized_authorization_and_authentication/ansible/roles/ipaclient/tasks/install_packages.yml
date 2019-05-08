@@ -1,7 +1,9 @@
 ---
-- yum: 
+- name: Установка необходимых пакетов для клиента FreeIPA
+  yum: 
     name:
       - ipa-client
+      - realmd
     state: installed
 
 ...

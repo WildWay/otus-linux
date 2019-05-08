@@ -2,9 +2,16 @@
 freeipa_server_fqdn: ipaserver.wildway.lan
 freeipa_domain: wildway.lan
 freeipa_realm: WILDWAY.LAN
+freeipa_server_admin_acc: admin
 freeipa_server_admin_password: 123qwe4R5T
 freeipa_server_ds_password: 123qwe4R5T
 dns_forwarder_1: 8.8.8.8
 dns_forwarder_2: 77.88.8.8
+
+freeipa_user_name: wildway
+freeipa_user_givenname: wild
+freeipa_user_sn: way
+freeipa_user_loginshell: /bin/bash
+freeipa_user_sshpubkey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDafb9c2WnMqU+Khy8wWxwlUMeau2WMONr4joty/7mWx4nZqPBMruHpYUJN5gp94QBbbMw/wduehAp+VqvaWLR0Pk17iPYzygUCOTnX55hHLCIvjgWRAjtARpkOLiaktZBlyNi5AnuiPPX7xBCVN7mjHVOf6FzKr2t0JGJtxC8/xGhqAhgQ7gis4TAss/R4cqT4U6Nt/fGYJSHEXtlBJb66Nq4mcXbujwjJ6JXgjJ2/LalAx7imrCi/NeHjxk4nEXb4FHBHq+oIWd9oWV54ePMugd0GqowTwj2KSu1peIpb/Ri5Upt4xVgWbzY1gRMC7+1oTw5qBK87vx6M9hiwZVpf
 
 ...

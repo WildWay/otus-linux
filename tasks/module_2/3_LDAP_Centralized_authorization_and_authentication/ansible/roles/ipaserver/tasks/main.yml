@@ -14,4 +14,6 @@
 - name: Configure Firewall
   import_tasks: configure_firewall.yml
 
+- name: Configure ipauser
+  import_tasks: configure_ipauser.yml
 ...

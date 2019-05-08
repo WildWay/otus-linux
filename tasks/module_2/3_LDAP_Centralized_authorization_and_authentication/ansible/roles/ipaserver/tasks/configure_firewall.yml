@@ -1,10 +1,12 @@
 ---
-- service:
+- name: Установка firwealld в состояние enabled & started
+  service:
     name: firewalld
     enabled: yes
     state: started
 
-- firewalld:
+- name: Добавление сервисов в стандартную зону firewall
+  firewalld:
     service: "{{ item }}"
     state: enabled
     permanent: yes

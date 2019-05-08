@@ -1,5 +1,6 @@
 ---
-- command: ipa-server-install --hostname={{ freeipa_server_fqdn }} --domain={{ freeipa_domain }} --realm={{ freeipa_realm }} --ds-password={{ freeipa_server_ds_password }} --admin-password={{ freeipa_server_admin_password }} --mkhomedir --setup-dns --forwarder={{ dns_forwarder_1 }} --forwarder={{ dns_forwarder_2 }} --auto-reverse --unattended
+- name: Установка сервера FreeIPA
+  command: ipa-server-install --hostname={{ freeipa_server_fqdn }} --domain={{ freeipa_domain }} --realm={{ freeipa_realm }} --ds-password={{ freeipa_server_ds_password }} --admin-password={{ freeipa_server_admin_password }} --mkhomedir --setup-dns --forwarder={{ dns_forwarder_1 }} --forwarder={{ dns_forwarder_2 }} --auto-reverse --unattended
   notify:
     - restart freeipa
 

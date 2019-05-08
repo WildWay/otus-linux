@@ -1,5 +1,19 @@
 ---
-- lineinfile:
+- name: Отключение автоконфигурирования resolv.conf
+  lineinfile:
+    dest: /etc/NetworkManager/NetworkManager.conf
+    insertafter: '^\[main\]'
+    line: 'dns=none'
+  register: lineinfile_NetworkManager
+
+- name: Перезапуск NetworkManager для применения новых настроек
+  service:
+    name: NetworkManager
+    state: restarted
+  when: lineinfile_NetworkManager.changed
+
+- name: Добавление DNS
+  lineinfile:
     dest: /etc/resolv.conf
     regexp: '^nameserver'
     line: 'nameserver 192.168.11.250'

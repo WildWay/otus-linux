@@ -1,4 +1,0 @@
----
-- command: ipa-client-install --hostname={{ freeipa_client_fqdn }} --mkhomedir --server={{ freeipa_server_fqdn }} --domain={{ freeipa_domain }} --realm={{ freeipa_realm }} --principal={{ freeipa_server_admin_acc }}@{{ freeipa_realm }} --password={{ freeipa_server_admin_password }} --force-ntpd --unattended
-
-...

@@ -34,7 +34,7 @@ Vagrant.configure("2") do |config|
       box.vm.provision "ansible_local" do |ansible|
         ansible.playbook = "ansible/" + boxconfig[:ansible]
 	    end
-      config.vm.provision "shell", path: "shell/test_task.sh"
+      box.vm.provision "shell", path: "shell/test_task.sh"
     end
   end
 end

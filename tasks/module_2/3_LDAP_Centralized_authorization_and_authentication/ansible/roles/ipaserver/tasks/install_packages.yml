@@ -1,8 +1,10 @@
 ---
-- yum:
+- name: Установка необходимых пакетов для сервера FreeIPA
+  yum:
     name:
       - ipa-server
       - ipa-server-dns
+      - realmd
     state: installed
 
 ...

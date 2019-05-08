@@ -1,0 +1,14 @@
+---
+- name: Создание пользователя с возможностью входа по ключу
+  ipa_user:
+    name: "{{ freeipa_user_name }}"
+    state: present
+    givenname: "{{ freeipa_user_givenname }}"
+    sn: "{{ freeipa_user_sn }}"
+    loginshell: "{{ freeipa_user_loginshell }}"
+    sshpubkey: "{{ freeipa_user_sshpubkey }}"
+    ipa_host: "{{ freeipa_server_fqdn }}"
+    ipa_user: "{{ freeipa_server_admin_acc }}"
+    ipa_pass: "{{ freeipa_server_admin_password }}"
+
+...

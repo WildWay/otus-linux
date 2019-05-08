@@ -7,5 +7,5 @@ yum install -y ansible
 
 echo "============================================"
 echo "Имя хоста - `hostname`"
-for ip in $(hostname -I); do echo "IP адрес для подключения - $ip"; done
+echo "IP адрес для подключения - `hostname -I | cut -d ' ' -f 2`"
 echo "============================================"

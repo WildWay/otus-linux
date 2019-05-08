@@ -1,5 +1,6 @@
 ---
-- lineinfile:
+- name: Добавление записи о fqdn в hosts
+  lineinfile:
     dest: /etc/hosts
     line: '192.168.11.250   ipaserver.wildway.lan    ipaserver'
 
