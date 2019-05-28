@@ -3,8 +3,10 @@
 
 MACHINES = {
   :"mod2-2" => {
-        :box_name => "centos/7",
-        :ip_addr => '192.168.11.150'
+    :box_name => "bento/centos-7.2",
+    :ip_addr => "192.168.11.250",
+    :memory => "128",
+    :shell => "mod2-2.sh"
   }
 }
 
@@ -19,29 +21,12 @@ Vagrant.configure("2") do |config|
 
           box.vm.network "private_network", ip: boxconfig[:ip_addr]
 
-          box.vm.provider :virtualbox do |vb|
-            vb.customize ["modifyvm", :id, "--memory", "200"]
+          box.vm.provider "virtualbox" do |vb|
+            vb.name = boxname.to_s
+            vb.memory = boxconfig[:memory]
           end
 
-          box.vm.provision "shell", inline: <<-SHELL
-            mkdir -p ~root/.ssh; cp ~vagrant/.ssh/auth* ~root/.ssh
-            sed -i '65s/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
-            systemctl restart sshd
-
-            yum install -y ansible
-
-            cp -R /vagrant/ansible_2_2/ ~/ansible
-            cd ~/ansible
-            ansible-playbook -i inventory.yml mod2_2.yml
-
-            echo "============================================"
-            for ip in $(hostname -I); do echo "IP адрес для подключения - $ip"; done
-            echo "В случае успешного подключения Вы увидите сообщение о фильтрации модулем."
-            echo "Пользователь vagrant находится в группе admin и может войти в любое время."
-            echo "Пользователь root не может заходить в выходные и праздничные дни."
-            echo "============================================"
-
-          SHELL
+          box.vm.provision "shell", path: boxconfig[:shell]
       end
   end
 end
