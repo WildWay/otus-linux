@@ -1,0 +1,15 @@
+---
+- name: Prepare configs for ELK
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    with_items:
+      - { src: 'elasticsearch.yml', dest: '/etc/elasticsearch/elasticsearch.yml', group: elasticsearch, mode: 0660 }
+      - { src: 'filebeat.yml', dest: '/etc/filebeat/filebeat.yml', group: root, mode: 0600 }
+      - { src: 'kibana.yml', dest: '/etc/kibana/kibana.yml', group: root, mode: 0644  }
+    owner: root
+    group: "{{ item.group }}"
+    mode: "{{ item.mode }}"
+  notify:
+    - Enable and start ELK services 
+...

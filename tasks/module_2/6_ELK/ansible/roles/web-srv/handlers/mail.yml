@@ -1,0 +1,13 @@
+---
+- name: Enable and start ELK services 
+  service:
+    name: 
+      - elasticsearch
+      - logstash
+      - filebeat
+      - kibana
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
+
+...

@@ -1,0 +1,11 @@
+---
+- name: Elastic Stack Data Server
+  hosts: elk-data
+  become: yes
+  gather_facts: no
+  
+  roles:
+  - role: elk-data
+    state: present
+
+...

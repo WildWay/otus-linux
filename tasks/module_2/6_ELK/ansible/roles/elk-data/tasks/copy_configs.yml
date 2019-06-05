@@ -1,0 +1,14 @@
+---
+- name: Copy configs for ELK & hosts
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: "{{ item.group }}"
+    mode: "{{ item.mode }}"
+  with_items:
+    - { src: 'elasticsearch.yml', dest: '/etc/elasticsearch/elasticsearch.yml', group: elasticsearch, mode: '0660' }
+    - { src: 'hosts', dest: '/etc/hosts', group: root, mode: '0644'  }
+  notify:
+    - Enable and start ELK services 
+...

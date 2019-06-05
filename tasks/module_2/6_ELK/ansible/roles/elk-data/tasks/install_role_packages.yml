@@ -1,0 +1,24 @@
+---
+- name: Add repo ELK repo
+  yum_repository:
+    file: ELK
+    name: elasticsearch-6.x
+    description: Elasticsearch repository for 6.x packages
+    baseurl: https://artifacts.elastic.co/packages/6.x/yum
+    gpgcheck: yes
+    gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    enabled: yes
+
+- name: Import ELK repo key
+  rpm_key:
+    state: present
+    key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+
+- name: Install ELK
+  yum:
+    name:
+      - java-1.8.0-openjdk 
+      - elasticsearch
+    state: installed
+
+...

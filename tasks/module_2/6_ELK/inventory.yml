@@ -1,0 +1,9 @@
+all:
+  hosts:
+    elk-master: 192.168.11.250
+    elk-data: 192.168.11.251
+    web-srv: 192.168.11.252
+  vars:
+    ansible_port: 22
+    ansible_user: vagrant
+    ansible_ssh_pass: vagrant

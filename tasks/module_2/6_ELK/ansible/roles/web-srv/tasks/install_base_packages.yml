@@ -1,0 +1,11 @@
+---
+- name: Install base packages
+  yum:
+    name:
+      - net-tools
+      - vim
+      - wget
+      - curl
+    state: installed
+
+...
