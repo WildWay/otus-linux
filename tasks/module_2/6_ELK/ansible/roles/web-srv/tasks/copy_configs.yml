@@ -1,0 +1,14 @@
+---
+- name: Prepare configs for ELK
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: "{{ item.group }}"
+    mode: "{{ item.mode }}"
+  with_items:
+    - { src: 'filebeat.yml', dest: '/etc/filebeat/filebeat.yml', group: root, mode: '0600' }
+    - { src: 'hosts', dest: '/etc/hosts', group: root, mode: '0644'  }
+  notify:
+    - Enable and start ELK services 
+...
