@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  nginx:
+    image: wildway/otus_nginx_alpine_custom:latest
+    ports:
+      - 80:80
+    volumes:
+      - ./src:/usr/share/nginx/html:z
+    depends_on:
+      - php
+
+  php:
+    image: php:7.2-fpm
+    volumes:
+      - ./src:/usr/share/nginx/html:z
