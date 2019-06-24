@@ -1,0 +1,18 @@
+---
+- name: Prepare configs for logging & audit services
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: "{{ item.group }}"
+    mode: "{{ item.mode }}"
+  with_items:
+    - { src: 'filebeat.yml', dest: '/etc/filebeat/filebeat.yml', group: root, mode: '0600' }
+    - { src: 'hosts', dest: '/etc/hosts', group: root, mode: '0644'  }
+    - { src: 'nginx.rules', dest: '/etc/audit/rules.d/nginx.rules', group: root, mode: '0600'  }
+    - { src: 'rsyslog.conf', dest: '/etc/rsyslog.conf', group: root, mode: '0644'  }
+    - { src: 'auditd.service', dest: '/usr/lib/systemd/system/auditd.service', group: root, mode: '0644'  }
+  notify:
+    - Enable and start logging & audit services
+
+...

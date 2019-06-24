@@ -1,0 +1,14 @@
+---
+- name: Install base packages
+  import_tasks: install_base_packages.yml
+
+- name: Install role packages
+  import_tasks: install_role_packages.yml
+
+- name: Set up role files
+  import_tasks: setup_role_files.yml
+
+- name: Copy configs
+  import_tasks: copy_configs.yml
+
+...

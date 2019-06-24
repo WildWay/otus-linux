@@ -1,0 +1,13 @@
+---
+- name: Install base packages
+  yum:
+    name:
+      - net-tools
+      - vim
+      - wget
+      - curl
+      - python
+      - MySQL-python
+    state: installed
+
+...

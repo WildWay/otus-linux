@@ -1,0 +1,12 @@
+---
+- name: Install base packages
+  yum:
+    name:
+      - epel-release
+      - net-tools
+      - vim
+      - wget
+      - curl
+    state: installed
+
+...
