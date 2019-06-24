@@ -1,13 +1,11 @@
 ---
 - name: Enable and start ELK services 
   service:
-    name: 
-      - elasticsearch
-      - logstash
-      - filebeat
-      - kibana
+    name: "{{ item }}"
     state: restarted
     enabled: yes
     daemon_reload: yes
-
+  with_items:
+    - filebeat
+    - nginx
 ...

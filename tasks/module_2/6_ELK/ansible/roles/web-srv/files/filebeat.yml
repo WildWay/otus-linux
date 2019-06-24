@@ -61,7 +61,23 @@ filebeat.inputs:
   # that was (not) matched before or after or as long as a pattern is not matched based on negate.
   # Note: After is the equivalent to previous and before is the equivalent to to next in Logstash
   #multiline.match: after
+- type: log
+  enabled: true
+  paths:
+      - /var/log/nginx/*-access.log
+  fields:
+    type: nginx_access
+  fields_under_root: true
+  scan_frequency: 5s
 
+- type: log
+  enabled: true
+  paths:
+      - /var/log/nginx/*-error.log
+  fields:
+    type: nginx_error
+  fields_under_root: true
+  scan_frequency: 5s
 
 #============================= Filebeat modules ===============================
 
@@ -160,7 +176,7 @@ setup.kibana:
 #----------------------------- Logstash output --------------------------------
 output.logstash:
   # The Logstash hosts
-  hosts: ["localhost:5044"]
+  hosts: ["elk-master:5044"]
 
   # Optional SSL. By default is off.
   # List of root certificates for HTTPS server verifications
@@ -205,3 +221,8 @@ processors:
 # have the Elasticsearch output configured, you can simply uncomment the
 # following line.
 #xpack.monitoring.elasticsearch:
+
+xpack.monitoring:
+  enabled: true
+  elasticsearch:
+    hosts: ["http://elk-master:9200"]
