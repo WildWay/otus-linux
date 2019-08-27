@@ -1,0 +1,87 @@
+# -*- mode: ruby -*-
+# vim: set ft=ruby :
+
+MACHINES = {
+  :inetRouter => {
+    :box_name => "centos/7",
+    :memory => "256",
+    :ip_addr => [
+      {ip: '192.168.255.1', adapter: 2, netmask: "255.255.255.252", virtualbox__intnet: "inetRouter<==>centralRouter"},
+    ]
+  },
+  :centralRouter => {
+    :box_name => "centos/7",
+    :memory => "256",
+    :ip_addr => [
+      {ip: '192.168.255.2', adapter: 2, netmask: "255.255.255.252", virtualbox__intnet: "inetRouter<==>centralRouter"},
+      {ip: '192.168.254.1', adapter: 3, netmask: "255.255.255.252", virtualbox__intnet: "centralRouter<==>Office1"},
+      {ip: '192.168.253.1', adapter: 4, netmask: "255.255.255.252", virtualbox__intnet: "centralRouter<==>Office2"},
+      {ip: '192.168.0.1',   adapter: 5, netmask: "255.255.255.240", virtualbox__intnet: "centralRouter<==>directors"},
+      {ip: '192.168.0.33',  adapter: 6, netmask: "255.255.255.240", virtualbox__intnet: "centralRouter<==>office hardware"},
+      {ip: '192.168.0.65',  adapter: 7, netmask: "255.255.255.192", virtualbox__intnet: "centralRouter<==>wifi"},
+    ]
+  },
+  :centralServer => {
+    :box_name => "centos/7",
+    :memory => "256",
+    :ip_addr => [
+      {ip: '192.168.0.2',   adapter: 2, netmask: "255.255.255.240", virtualbox__intnet: "centralRouter<==>directors"},
+    ]
+  },
+
+  :office1Router => {
+    :box_name => "centos/7",
+    :memory => "256",
+    :ip_addr => [
+      {ip: '192.168.254.2', adapter: 2, netmask: "255.255.255.252", virtualbox__intnet: "centralRouter<==>Office1"},
+      {ip: '192.168.2.1',   adapter: 3, netmask: "255.255.255.192", virtualbox__intnet: "Office1<==>dev"},
+      {ip: '192.168.2.65',  adapter: 4, netmask: "255.255.255.192", virtualbox__intnet: "Office1<==>test servers"},
+      {ip: '192.168.2.129', adapter: 5, netmask: "255.255.255.192", virtualbox__intnet: "Office1<==>managers"},
+      {ip: '192.168.2.193', adapter: 6, netmask: "255.255.255.192", virtualbox__intnet: "Office1<==>office hardware"},
+    ]
+  }, 
+  :office1Server => {
+    :box_name => "centos/7",
+    :memory => "256",
+    :ip_addr => [
+      {ip: '192.168.2.66',  adapter: 2, netmask: "255.255.255.192", virtualbox__intnet: "Office1<==>test servers"},
+    ]
+  },
+
+  :office2Router => {
+    :box_name => "centos/7",
+    :memory => "256",
+    :ip_addr => [
+      {ip: '192.168.253.2', adapter: 2, netmask: "255.255.255.252", virtualbox__intnet: "centralRouter<==>Office2"},
+      {ip: '192.168.1.1',   adapter: 3, netmask: "255.255.255.128", virtualbox__intnet: "Office2<==>dev"},
+      {ip: '192.168.1.129', adapter: 4, netmask: "255.255.255.192", virtualbox__intnet: "Office2<==>test servers"},
+      {ip: '192.168.1.193', adapter: 5, netmask: "255.255.255.192", virtualbox__intnet: "Office1<==>office hardware"},
+    ]
+  }, 
+  :office2Server => {
+    :box_name => "centos/7",
+    :memory => "256",
+    :ip_addr => [
+      {ip: '192.168.1.130', adapter: 2, netmask: "255.255.255.192", virtualbox__intnet: "Office2<==>test servers"},
+    ]
+  }
+}
+
+
+Vagrant.configure("2") do |config|
+  MACHINES.each do |boxname, boxconfig|
+    config.vm.define boxname do |box|
+      box.vm.box = boxconfig[:box_name]
+      box.vm.host_name = boxname.to_s
+      box.vm.provider "virtualbox" do |vb|
+        vb.name = boxname.to_s
+        vb.memory = boxconfig[:memory]
+      end
+      boxconfig[:ip_addr].each do |ipconf|
+        box.vm.network "private_network", ipconf
+      end
+      box.vm.provision "shell", path: "shell/" + boxname.to_s + ".sh"
+#      box.vm.provision "shell", path: "shell/test_task.sh"
+    end
+  end
+end
