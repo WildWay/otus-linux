@@ -1,0 +1,35 @@
+# -*- mode: ruby -*-
+# vim: set ft=ruby :
+
+require 'yaml'
+nodes = YAML.load_file('nodes.yml')
+
+Vagrant.configure(2) do |config|
+  nodes.each do |nodes|
+
+    config.vm.define nodes["name"] do |node|
+      node.vm.hostname = nodes["name"]
+      node.vm.box = "centos/7"
+
+      node.vm.provider "virtualbox" do |vb|
+        vb.name = nodes["name"]
+        vb.memory = 192
+        vb.cpus = 1
+      end
+
+      if nodes.key?("fwdPort")
+        nodes["fwdPort"].each do |param|
+          node.vm.network "forwarded_port", param
+        end
+      end
+
+      nodes["netInt"].each do |param|
+        node.vm.network "private_network", param
+      end
+
+      node.vm.synced_folder "./sync", "/vagrant"
+
+    end
+  end
+
+end
