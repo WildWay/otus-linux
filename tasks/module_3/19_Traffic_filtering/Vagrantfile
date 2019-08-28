@@ -17,17 +17,19 @@ Vagrant.configure(2) do |config|
         vb.cpus = 1
       end
 
-      if nodes.key?("fwdPort")
-        nodes["fwdPort"].each do |param|
-          node.vm.network "forwarded_port", param
-        end
-      end
-
       nodes["netInt"].each do |param|
         node.vm.network "private_network", param
       end
 
+      if nodes.key?("extInt")
+        nodes["extInt"].each do |param|
+          node.vm.network "public_network", param
+        end
+      end
+
       node.vm.synced_folder "./sync", "/vagrant"
+
+      node.vm.provision "shell", path: "shell/" + nodes["name"].to_s + ".sh"
 
     end
   end

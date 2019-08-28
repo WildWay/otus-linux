@@ -2,39 +2,40 @@
 - name: inetRouter
   netInt:
     - :adapter: 2
-      :ip: 192.168.255.1
+      :ip: "192.168.255.1"
       :netmask: "255.255.255.252"
       :virtualbox__intnet: "inetRouter<==>centralRouter"
 
 - name: inetRouter2
-  fwdPort:
-    - :adapter: 1
-      :guest: 80
-      :host: 8080
+  netInt:
+    - :adapter: 2
+      :ip: "192.168.254.1"
+      :netmask: "255.255.255.252"
+      :virtualbox__intnet: "inetRouter2<==>centralRouter"
+  extInt:
+    - :adapter: 3
+      :ip: "192.168.0.10"
+      :netmask: "255.255.255.0"
+      
+
+- name: centralRouter
   netInt:
     - :adapter: 2
       :ip: "192.168.255.2"
       :netmask: "255.255.255.252"
       :virtualbox__intnet: "inetRouter<==>centralRouter"
-
-- name: centralRouter
-  netInt:
-    - :adapter: 2
-      :ip: 192.168.255.2
-      :netmask: "255.255.255.252"
-      :virtualbox__intnet: "inetRouter<==>centralRouter"
     - :adapter: 3
-      :ip: 192.168.254.2
+      :ip: "192.168.254.2"
       :netmask: "255.255.255.252"
       :virtualbox__intnet: "inetRouter2<==>centralRouter"
     - :adapter: 4
-      :ip: 192.168.0.1
+      :ip: "192.168.250.1"
       :netmask: "255.255.255.240"
       :virtualbox__intnet: "centralRouter<==>centralServer"
 
 - name: centralServer
   netInt:
     - :adapter: 2
-      :ip: 192.168.0.2
+      :ip: "192.168.250.2"
       :netmask: "255.255.255.240"
       :virtualbox__intnet: "centralRouter<==>centralServer"
