@@ -1,4 +1,5 @@
 #!/bin/sh
+. sync/testTask.sh
 
 # В скольких потоках поднимать машины
 #RUN_IN_PARALLEL=4
@@ -16,15 +17,14 @@ echo "1 - Уничтожить все машины"
 
 echo "Введите номер:"; read ACTION
 
-if  [[ $ACTION == '0' ]]; then
-    echo "Выбран вариант 0 - Развернуть все машины"
-    parallel_run up
-    echo "Скрипт проверки работоспособности расположен на каждой машине в /vagrant/shell/testTask.sh"
-    echo "Скрипт проверяет следующие задачи:"
-elif [[ $ACTION == '1' ]]; then
+if [[ $ACTION == '1' ]]; then
     echo "Выбран вариант 1 - Уничтожить все машины"
     parallel_run 'destroy -f'
     rm -rf ./.vagrant
+elif  [[ $ACTION == '0' ]]; then
+    echo "Выбран вариант 0 - Развернуть все машины"
+    parallel_run up
+    testTask
 else
     echo "Не известный вариант"
     echo "Завершение работы скрипта"

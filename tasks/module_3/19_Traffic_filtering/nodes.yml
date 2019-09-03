@@ -15,8 +15,7 @@
   extInt:
     - :adapter: 3
       :ip: "192.168.0.10"
-      :netmask: "255.255.255.0"
-      
+      :netmask: "255.255.255.0"   
 
 - name: centralRouter
   netInt:
