@@ -1,0 +1,9 @@
+- name: Enable and start services
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
+  with_items:
+    - zebra
+    - ospfd

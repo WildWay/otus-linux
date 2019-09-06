@@ -1,0 +1,20 @@
+hostname {{ ansible_hostname }}
+
+password zebra
+
+enable password zebra
+
+log file /var/log/quagga/zebra.log
+
+ip forwarding
+
+ip route 0.0.0.0/0 {{ ansible_default_ipv4.gateway }}
+
+interface eth1
+  ip address {{ ansible_eth1.ipv4.address }}/{{ {{ ansible_hostname }}.eth1_ip_mask | ipaddr('prefix') }}
+
+interface eth2
+  ip address {{ ansible_eth3.ipv4.address }}/{{ {{ ansible_hostname }}.eth2_ip_mask | ipaddr('prefix') }}
+
+interface eth3
+  ip address {{ ansible_eth3.ipv4.address }}/{{ {{ ansible_hostname }}.eth3_ip_mask | ipaddr('prefix') }}

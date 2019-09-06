@@ -1,0 +1,53 @@
+---
+- name:                    "ABR1"
+  netInt:
+    - :adapter:            2
+      :ip:                 "10.0.10.1"
+      :netmask:            "255.255.255.0"
+      :virtualbox__intnet: "AREA1"
+
+    - :adapter:            3
+      :ip:                 "172.16.12.9"
+      :netmask:            "255.255.255.252"
+      :virtualbox__intnet: "AREA0_VLAN12"
+
+    - :adapter:            4
+      :ip:                 "172.16.16.9"
+      :netmask:            "255.255.255.252"
+      :virtualbox__intnet: "AREA0_VLAN16"
+
+
+- name:                    "ABR2"
+  netInt:
+    - :adapter:            2
+      :ip:                 "10.0.20.1"
+      :netmask:            "255.255.255.0"
+      :virtualbox__intnet: "AREA2"
+
+    - :adapter:            3
+      :ip:                 "172.16.12.10"
+      :netmask:            "255.255.255.252"
+      :virtualbox__intnet: "AREA0_VLAN12"
+
+    - :adapter:            4
+      :ip:                 "172.16.20.9"
+      :netmask:            "255.255.255.252"
+      :virtualbox__intnet: "AREA0_VLAN20"
+
+
+- name:                    "ABR3"
+  netInt:
+    - :adapter:            2
+      :ip:                 "10.0.30.1"
+      :netmask:            "255.255.255.0"
+      :virtualbox__intnet: "AREA3"
+
+    - :adapter:            3
+      :ip:                 "172.16.16.10"
+      :netmask:            "255.255.255.252"
+      :virtualbox__intnet: "AREA0_VLAN16"
+
+    - :adapter:            4
+      :ip:                 "172.16.20.10"
+      :netmask:            "255.255.255.252"
+      :virtualbox__intnet: "AREA0_VLAN20"

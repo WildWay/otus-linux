@@ -1,0 +1,36 @@
+# -*- mode: ruby -*-
+# vim: set ft=ruby :
+
+require 'yaml'
+nodes = YAML.load_file('nodes.yml')
+
+Vagrant.configure(2) do |config|
+  nodes.each do |nodes|
+
+    config.vm.define nodes["name"] do |node|
+      node.vm.hostname = nodes["name"]
+      node.vm.box = "centos/7"
+
+      node.vm.provider "virtualbox" do |vb|
+        vb.name = nodes["name"]
+        vb.memory = 256
+        vb.cpus = 1
+      end
+
+      nodes["netInt"].each do |param|
+        node.vm.network "private_network", param
+      end
+
+      node.vm.synced_folder "sync", "/vagrant", type: "rsync"
+      node.vm.synced_folder "sync/ansible/roles", "/etc/ansible/roles", type: "rsync"
+
+      node.vm.provision "shell", path: "shell/base_install.sh"
+
+      node.vm.provision "ansible_local" do |ansible|
+        ansible.playbook = "/vagrant/ansible/ABR.yml"
+	    end
+
+    end
+  end
+
+end

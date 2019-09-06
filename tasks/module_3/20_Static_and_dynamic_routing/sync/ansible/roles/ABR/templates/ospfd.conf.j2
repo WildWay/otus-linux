@@ -1,0 +1,19 @@
+hostname {{ ansible_hostname }}
+
+password ospfd
+
+enable password ospfd
+
+log file /var/log/quagga/ospfd.log
+
+interface eth2
+  ip ospf cost {{ {{ ansible_hostname }}.eth2_cost }}
+
+interface eth3
+  ip ospf cost {{ {{ ansible_hostname }}.eth3_cost }}
+
+router ospf
+  ospf router-id {{ {{ ansible_hostname }}.router_id }}
+  network {{ {{ ansible_hostname }}.eth1_ip_mask | ipaddr('net') }} area {{ {{ ansible_hostname }}.eth1_area }}
+  network {{ {{ ansible_hostname }}.eth2_ip_mask | ipaddr('net') }} area {{ {{ ansible_hostname }}.eth2_area }}
+  network {{ {{ ansible_hostname }}.eth3_ip_mask | ipaddr('net') }} area {{ {{ ansible_hostname }}.eth3_area }}

@@ -1,0 +1,1 @@
+![Карта сети](20_Static_and_dynamic_routing.jpg "Карта сети")

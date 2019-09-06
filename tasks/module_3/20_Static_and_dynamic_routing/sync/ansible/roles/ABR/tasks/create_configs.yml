@@ -1,0 +1,16 @@
+---
+- name: Copy configs
+  template:
+    src:   "{{ item.src   }}"
+    dest:  "{{ item.dest  }}"
+    owner: "{{ item.owner }}"
+    group: "{{ item.group }}"
+    mode:  "{{ item.mode  }}"
+  with_items:
+    - { src: 'daemons', dest: '/etc/quagga/daemons', owner: quagga, group: quagga, mode: '0640'  }
+    - { src: "{{ansible_hostname}}.zebra.conf", dest: '/etc/quagga/zebra.conf', owner: quagga, group: quagga, mode: '0640'  }
+    - { src: '{{ansible_hostname}}.ospfd.conf', dest: '/etc/quagga/ospfd.conf', owner: quagga, group: quagga, mode: '0640'  }
+
+  notify:
+    - Enable and start services 
+...

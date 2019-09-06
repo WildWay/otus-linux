@@ -1,0 +1,13 @@
+---
+- name: Install base packages
+  import_tasks: install_base_packages.yml
+
+- name: Install role packages
+  import_tasks: install_role_packages.yml
+
+- name: Enable routing
+  import_tasks: enable_routing.yml
+
+- name: Create configs from templates
+  import_tasks: create_configs.yml
+...
