@@ -1,45 +1,30 @@
 ---
-CURRENT:
-  e1m: "{{ eth1_ip_mask }}"
-  eth1_ip_mask:  "{{ ansible_hostname }}.eth1_ip_mask"
-  eth2_ip_mask:  "{{ ansible_hostname }}.eth2_ip_mask"
-  eth3_ip_mask:  "{{ ansible_hostname }}.eth3_ip_mask"
-
 ABR1:
   router_id:      "1.1.1.1"
-
-  eth2_cost:      "50"
-  eth3_cost:      "50"
-
-  eth1_ip_mask:   "{{ ansible_eth1.ipv4.address }}/{{ ansible_eth1.ipv4.netmask }}"
-  eth1_area:      "0.0.0.1"
-  eth2_ip_mask:   "{{ ansible_eth2.ipv4.address }}/{{ ansible_eth2.ipv4.netmask }}"
-  eth2_area:      "0.0.0.0"
-  eth3_ip_mask:   "{{ ansible_eth3.ipv4.address }}/{{ ansible_eth3.ipv4.netmask }}"
-  eth3_area:      "0.0.0.0"
+  cost:
+    eth2:         "50"
+    eth3:         "50"
+  area:
+    eth1:         "0.0.0.1"
+    eth2:         "0.0.0.0"
+    eth3:         "0.0.0.0"
 
 ABR2:
   router_id:      "2.2.2.2"
-
-  eth2_cost:      "50"
-  eth3_cost:      "1000"
-
-  eth1_ip_mask:   "{{ ansible_eth1.ipv4.address }}/{{ ansible_eth1.ipv4.netmask }}"
-  eth1_area:      "0.0.0.2"
-  eth2_ip_mask:   "{{ ansible_eth2.ipv4.address }}/{{ ansible_eth2.ipv4.netmask }}"
-  eth2_area:      "0.0.0.0"
-  eth3_ip_mask:   "{{ ansible_eth3.ipv4.address }}/{{ ansible_eth3.ipv4.netmask }}"
-  eth3_area:      "0.0.0.0"
+  cost:
+    eth2:         "50"
+    eth3:         "1000"
+  area:
+    eth1:         "0.0.0.2"
+    eth2:         "0.0.0.0"
+    eth3:         "0.0.0.0"
 
 ABR3:
   router_id:      "3.3.3.3"
-
-  eth2_cost:      "50"
-  eth3_cost:      "50"
-
-  eth1_ip_mask:   "{{ ansible_eth1.ipv4.address }}/{{ ansible_eth1.ipv4.netmask }}"
-  eth1_area:      "0.0.0.3"
-  eth2_ip_mask:   "{{ ansible_eth2.ipv4.address }}/{{ ansible_eth2.ipv4.netmask }}"
-  eth2_area:      "0.0.0.0"
-  eth3_ip_mask:   "{{ ansible_eth3.ipv4.address }}/{{ ansible_eth3.ipv4.netmask }}"
-  eth3_area:      "0.0.0.0"
+  cost:
+    eth2:         "50"
+    eth3:         "50"
+  area:
+    eth1:         "0.0.0.3"
+    eth2:         "0.0.0.0"
+    eth3:         "0.0.0.0"

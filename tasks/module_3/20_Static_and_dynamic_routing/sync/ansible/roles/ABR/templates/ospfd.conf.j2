@@ -1,4 +1,4 @@
-hostname {{ ansible_hostname }}
+hostname {{ ansible_nodename }}
 
 password ospfd
 
@@ -7,13 +7,13 @@ enable password ospfd
 log file /var/log/quagga/ospfd.log
 
 interface eth2
-  ip ospf cost {{ {{ ansible_hostname }}.eth2_cost }}
+  ip ospf cost {{ vars[ansible_nodename]['cost']['eth2'] }}
 
 interface eth3
-  ip ospf cost {{ {{ ansible_hostname }}.eth3_cost }}
+  ip ospf cost {{ vars[ansible_nodename]['cost']['eth3'] }}
 
 router ospf
-  ospf router-id {{ {{ ansible_hostname }}.router_id }}
-  network {{ {{ ansible_hostname }}.eth1_ip_mask | ipaddr('net') }} area {{ {{ ansible_hostname }}.eth1_area }}
-  network {{ {{ ansible_hostname }}.eth2_ip_mask | ipaddr('net') }} area {{ {{ ansible_hostname }}.eth2_area }}
-  network {{ {{ ansible_hostname }}.eth3_ip_mask | ipaddr('net') }} area {{ {{ ansible_hostname }}.eth3_area }}
+  ospf router-id {{ vars[ansible_nodename]['router_id'] }}
+  network {{ (ansible_eth1['ipv4']['address'] + '/' + ansible_eth1['ipv4']['netmask']) | ipaddr('subnet') }} area {{ vars[ansible_nodename]['area']['eth1'] }}
+  network {{ (ansible_eth2['ipv4']['address'] + '/' + ansible_eth2['ipv4']['netmask']) | ipaddr('subnet') }} area {{ vars[ansible_nodename]['area']['eth2'] }}
+  network {{ (ansible_eth3['ipv4']['address'] + '/' + ansible_eth3['ipv4']['netmask']) | ipaddr('subnet') }} area {{ vars[ansible_nodename]['area']['eth3'] }}

@@ -1,7 +1,4 @@
 ---
-- name: Install base packages
-  import_tasks: install_base_packages.yml
-
 - name: Install role packages
   import_tasks: install_role_packages.yml
 

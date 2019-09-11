@@ -1,9 +1,9 @@
 ---
 - name: ABR role
-  hosts: localhost
+  hosts: all
+  connection: local
   become: yes
   gather_facts: yes
-  
   roles:
-  - role: /vagrant/ansible/roles/ABR
-    state: present
+    - role: /vagrant/ansible/roles/ABR
+      state: present

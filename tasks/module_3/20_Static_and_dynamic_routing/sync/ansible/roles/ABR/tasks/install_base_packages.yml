@@ -1,8 +1,0 @@
----
-- name: Install base packages
-  yum:
-    name:
-      - python-netaddr
-    state: installed
-
-...
